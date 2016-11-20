@@ -1,0 +1,42 @@
+samkit5495@ubuntu:~/Desktop/OSL/2$ cc MatrixMult.c
+/tmp/cch0TecI.o: In function `main':
+MatrixMult.c:(.text+0x3d5): undefined reference to `pthread_create'
+MatrixMult.c:(.text+0x3f9): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+samkit5495@ubuntu:~/Desktop/OSL/2$ cc MatrixMult.c -lpthread
+samkit5495@ubuntu:~/Desktop/OSL/2$ ./a.out
+Enter Size of A Matrix:
+Row: 3
+
+Column: 3
+
+Enter Matrix A: 
+2 2 2
+2 2 2
+2 2 2
+Enter Size of B Matrix:
+Row: 3
+
+Column: 3
+
+Enter Matrix B: 
+2 2 2
+2 2 2
+2 2 2
+
+Matrix A:
+2	2	2	
+2	2	2	
+2	2	2	
+
+Matrix B:
+2	2	2	
+2	2	2	
+2	2	2	
+
+Matrix A x B:
+12	12	12	
+12	12	12	
+12	12	12	
+samkit5495@ubuntu:~/Desktop/OSL/2$ 
+

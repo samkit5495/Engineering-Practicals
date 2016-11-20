@@ -1,0 +1,45 @@
+
+Output:
+
+student@mml19:~/Desktop/5$ cc Hamiltoniona.c
+student@mml19:~/Desktop/5$ ./a.out
+
+Enter total no of Vertex:4
+Enter total no of Edges:4
+Graph Type: 1. Directed Graph 2. Undirected Graph
+Enter Your Choice: 2
+Enter Edge No. 1:
+From: 1   
+To: 2
+Distance: 1
+Enter Edge No. 2:
+From: 2
+To: 3
+Distance: 1
+Enter Edge No. 3:
+From: 3
+To: 4
+Distance: 1
+Enter Edge No. 4:
+From: 4
+To: 1
+Distance: 1
+I/P Adjacency Matrix:
+0	1	0	1	
+1	0	1	0	
+0	1	0	1	
+1	0	1	0	
+Hamiltonion Path starting from:1
+1.	1->2->3->4
+2.	1->4->3->2
+Hamiltonion Path starting from:2
+1.	2->1->4->3
+2.	2->3->4->1
+Hamiltonion Path starting from:3
+1.	3->2->1->4
+2.	3->4->1->2
+Hamiltonion Path starting from:4
+1.	4->1->2->3
+2.	4->3->2->1
+student@mml19:~/Desktop/5$ 
+

@@ -1,0 +1,13 @@
+
+public class Set_Minutes implements State{
+
+	@Override
+	public int doAction(int hr,int min) {
+		// TODO Auto-generated method stub
+		min=(min%60)+1;
+		System.out.println("Time: "+hr+":"+min);
+		return min;
+	}
+
+	
+}

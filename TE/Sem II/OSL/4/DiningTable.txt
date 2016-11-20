@@ -1,0 +1,15 @@
+
+Output:
+
+student@student-OptiPlex-390:~/Desktop$ cc DiningTable.c -lpthread
+student@student-OptiPlex-390:~/Desktop$ ./a.out
+2 philosopher is eating!!!
+4 philosopher is eating!!!
+4 philosopher is relaxing and thinking!!!
+2 philosopher is relaxing and thinking!!!
+3 philosopher is eating!!!
+1 philosopher is eating!!!
+3 philosopher is relaxing and thinking!!!
+1 philosopher is relaxing and thinking!!!
+5 philosopher is eating!!!
+5 philosopher is relaxing and thinking!!!

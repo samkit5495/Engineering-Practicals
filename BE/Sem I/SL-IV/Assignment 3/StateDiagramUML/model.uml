@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_yz_k0IRuEeazcOKu9W2JIw" name="NewModel">
+  <packagedElement xmi:type="uml:StateMachine" xmi:id="_B7nrQIRvEeazcOKu9W2JIw" name="AppaisalSystem">
+    <region xmi:id="_B7oSUIRvEeazcOKu9W2JIw" name="Region1">
+      <transition xmi:id="_PmLmsISDEea6nopcR4y3Gw" guard="_zj25gISEEea6nopcR4y3Gw" source="_8XyfMISCEea6nopcR4y3Gw" target="_8XyfMISCEea6nopcR4y3Gw">
+        <name xsi:nil="true"/>
+        <ownedRule xmi:id="_zj25gISEEea6nopcR4y3Gw">
+          <specification xmi:type="uml:Expression" xmi:id="_0fxvMISEEea6nopcR4y3Gw" name="rating=3 or 4"/>
+        </ownedRule>
+        <effect xmi:type="uml:FunctionBehavior" xmi:id="_gy1qgISEEea6nopcR4y3Gw" name="10% increment"/>
+      </transition>
+      <transition xmi:id="_loMFUISDEea6nopcR4y3Gw" source="_K3itUISDEea6nopcR4y3Gw" target="_8XyfMISCEea6nopcR4y3Gw"/>
+      <transition xmi:id="_oH7eMISDEea6nopcR4y3Gw" guard="_y_w4gISFEea6nopcR4y3Gw" source="_8XyfMISCEea6nopcR4y3Gw" target="_ASI04ISDEea6nopcR4y3Gw">
+        <ownedRule xmi:id="_y_w4gISFEea6nopcR4y3Gw">
+          <specification xmi:type="uml:Expression" xmi:id="_zluFQISFEea6nopcR4y3Gw" name="rating=5"/>
+        </ownedRule>
+        <effect xmi:type="uml:FunctionBehavior" xmi:id="_b8ejEISFEea6nopcR4y3Gw" name="10% increment"/>
+      </transition>
+      <transition xmi:id="_8UDHUISFEea6nopcR4y3Gw" guard="_1Iu6sISGEea6nopcR4y3Gw" source="_ASI04ISDEea6nopcR4y3Gw" target="_E1lx8ISDEea6nopcR4y3Gw">
+        <ownedRule xmi:id="_1Iu6sISGEea6nopcR4y3Gw">
+          <specification xmi:type="uml:Expression" xmi:id="_22L7AISGEea6nopcR4y3Gw" name="rating=5"/>
+        </ownedRule>
+        <effect xmi:type="uml:FunctionBehavior" xmi:id="_4wPM4ISGEea6nopcR4y3Gw" name="10% increment"/>
+      </transition>
+      <transition xmi:id="_GknYMISGEea6nopcR4y3Gw" guard="_vZEpMISGEea6nopcR4y3Gw" source="_ASI04ISDEea6nopcR4y3Gw" target="_ASI04ISDEea6nopcR4y3Gw">
+        <ownedRule xmi:id="_cGIY4ISGEea6nopcR4y3Gw">
+          <specification xmi:type="uml:Expression" xmi:id="_crdTgISGEea6nopcR4y3Gw" name="rating=3 or 4"/>
+        </ownedRule>
+        <ownedRule xmi:id="_kQw4AISGEea6nopcR4y3Gw">
+          <specification xmi:type="uml:Expression" xmi:id="_lFJiUISGEea6nopcR4y3Gw" name="rating=5"/>
+        </ownedRule>
+        <ownedRule xmi:id="_urtz8ISGEea6nopcR4y3Gw"/>
+        <ownedRule xmi:id="_vZEpMISGEea6nopcR4y3Gw">
+          <specification xmi:type="uml:Expression" xmi:id="_v3UrcISGEea6nopcR4y3Gw" name="rating=3 or 4"/>
+        </ownedRule>
+        <effect xmi:type="uml:FunctionBehavior" xmi:id="_pTvpsISGEea6nopcR4y3Gw" name="10% increment"/>
+      </transition>
+      <transition xmi:id="_HPtjoISGEea6nopcR4y3Gw" guard="_JIo-sISHEea6nopcR4y3Gw" source="_E1lx8ISDEea6nopcR4y3Gw" target="_E1lx8ISDEea6nopcR4y3Gw">
+        <ownedRule xmi:id="_JIo-sISHEea6nopcR4y3Gw">
+          <name xsi:nil="true"/>
+          <specification xmi:type="uml:Expression" xmi:id="_KKBjMISHEea6nopcR4y3Gw" name="rating=3,4 or 5"/>
+        </ownedRule>
+        <effect xmi:type="uml:FunctionBehavior" xmi:id="_FoX88ISHEea6nopcR4y3Gw" name="10% increment"/>
+      </transition>
+      <transition xmi:id="_ei16QIuJEeaIZbyUEhC--A" source="_E1lx8ISDEea6nopcR4y3Gw" target="_YnBcEIuJEeaIZbyUEhC--A"/>
+      <subvertex xmi:type="uml:State" xmi:id="_8XyfMISCEea6nopcR4y3Gw" name="Worker"/>
+      <subvertex xmi:type="uml:State" xmi:id="_ASI04ISDEea6nopcR4y3Gw" name="Supervisor"/>
+      <subvertex xmi:type="uml:State" xmi:id="_E1lx8ISDEea6nopcR4y3Gw" name="Manager"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_K3itUISDEea6nopcR4y3Gw" name="Initial1"/>
+      <subvertex xmi:type="uml:Pseudostate" xmi:id="_YnBcEIuJEeaIZbyUEhC--A" name="Terminate2" kind="terminate"/>
+    </region>
+  </packagedElement>
+</uml:Model>

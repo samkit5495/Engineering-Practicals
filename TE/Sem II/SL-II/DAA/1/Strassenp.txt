@@ -1,0 +1,32 @@
+
+Output:
+
+student@itiss23:~$ cc Strassen.c -lm
+student@itiss23:~$ ./a.out
+
+Enter Size of matrix:3
+Enter Matrix A:
+3 3 3
+3 3 3
+3 3 3
+Matrix A:
+3	3	3	0	
+3	3	3	0	
+3	3	3	0	
+0	0	0	0	
+Enter Matrix B:
+3 3 3
+3 3 3
+3 3 3
+Matrix B:
+3	3	3	0	
+3	3	3	0	
+3	3	3	0	
+0	0	0	0	
+Matrix C:
+27	27	27	0	
+27	27	27	0	
+27	27	27	0	
+0	0	0	0	
+student@itiss23:~$ 
+

@@ -1,0 +1,20 @@
+
+Output:
+
+samkit5495@samkit5495:~/Desktop$ yacc -d 3ac.y
+samkit5495@samkit5495:~/Desktop$ lex 3ac.l
+samkit5495@samkit5495:~/Desktop$ cc y.tab.c lex.yy.c -ll
+samkit5495@samkit5495:~/Desktop$ ./a.out
+Enter Statement: if(a>b)thenz=u+v;elsez=u-v;
+if(a > b) goto L1
+goto L2
+L1:A:=	u	+	v
+B:=	z	=	A
+goto label L3
+L2:C:=	u	-	v
+D:=	z	=	C
+
+L3
+
+samkit5495@samkit5495:~/Desktop$ 
+

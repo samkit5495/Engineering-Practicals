@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+<title>Clock</title>
+
+<script type="text/javascript">
+
+function show()
+{
+	var dt=new Date()
+	var hours=dt.getHours()
+	var minutes=dt.getMinutes()
+	var sec=dt.getSeconds()
+	var x="A.M."
+	if(hours>12)
+	{
+		x="P.M."
+		hours=hours-12
+	}
+	if(hours==0)
+		hours=12
+	if(minutes<=9)
+		minutes="0"+minutes
+	if(sec<=9)
+		sec="0"+sec
+	document.Dat.Clock.value=hours+":"+minutes+":"+sec+" "+x
+	setTimeout("show()",1000)
+}
+
+</script>
+
+</head>
+
+<body onload="show()">
+
+<h1 align="center">Clock</h1>
+
+<hr>
+
+<br>
+
+<form name="Dat" align="center">
+
+<input type="text" name="Clock">
+
+</form>
+
+</body>
+
+</html>

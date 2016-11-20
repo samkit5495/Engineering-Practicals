@@ -1,0 +1,13 @@
+samkit5495@ubuntu:~/Desktop/College Programs/OSL/1/1B$ cc Orphan.c
+samkit5495@ubuntu:~/Desktop/College Programs/OSL/1/1B$ ./a.out
+
+	----PARENT PROCESS----
+
+Parent process id is : 82720
+samkit5495@ubuntu:~/Desktop/College Programs/OSL/1/1B$ 
+	----CHILD PROCESS----
+
+Child process id is : 82721
+
+New Parent process id is : 2407
+

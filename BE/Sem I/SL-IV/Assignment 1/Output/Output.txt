@@ -1,0 +1,69 @@
+Output:
+
+Samkit Tours And Travels
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. New Plan
+5. Exit
+1
+Enter Name
+samkit
+Enter Address
+kondhwa
+Enter Mobile No
+8600086024
+Enter Age
+21
+Select Gender
+1. Male
+2. Female
+1
+Customer [name=samkit, address=kondhwa, mobileNo=8600086024, age=21, gender=Male]
+Samkit Tours And Travels
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. New Plan
+5. Exit
+2
+Enter Name
+samkit
+Customer [name=samkit, address=kondhwa, mobileNo=8600086024, age=21, gender=Male]
+Samkit Tours And Travels
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. New Plan
+5. Exit
+3
+Enter Vehicle No
+MH12HJ523
+Enter Vehicle Model
+Wego
+Enter Vehicle Type
+2
+Enter Capacity
+2
+Vehicle [vehicleNumber=MH12HJ523, vehicleModel=Wego, vehicleType=2, vehicleCapacity=2]
+Samkit Tours And Travels
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. New Plan
+5. Exit
+4
+Enter Source
+Kondhwa
+Enter Destination
+Katraj
+Enter Cost
+30
+Plan [source=Kondhwa, destination=Katraj, cost=30.0]
+Samkit Tours And Travels
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. New Plan
+5. Exit
+5

@@ -1,0 +1,75 @@
+
+	Assignment 3
+
+Output:
+
+samkit5495@ubuntu:~/Desktop/DAA/3$ cc WarshalFloyd.c
+samkit5495@ubuntu:~/Desktop/DAA/3$ ./a.out
+Enter total no of Vertex:3
+Enter total no of Edges:4
+Graph Type: 1. Directed Graph 2. Undirected Graph
+Enter Your Choice: 1
+Enter Edge No. 1:
+From: 1
+To: 2
+Distance: 8
+Enter Edge No. 2:
+From: 1
+To: 3
+Distance: 5
+Enter Edge No. 3:
+From: 2
+To: 1
+Distance: 2
+Enter Edge No. 4:
+From: 3
+To: 2
+Distance: 1
+I/P Matrix: 
+0	8	5	
+2	0	999	
+999	1	0	
+Floyd Closure Matrix: 
+
+D0:
+0	8	5	
+2	0	999	
+999	1	0	
+
+D1:
+0	8	5	
+2	0	7	
+999	1	0	
+
+D2:
+0	8	5	
+2	0	7	
+3	1	0	
+
+D3:
+0	6	5	
+2	0	7	
+3	1	0	
+Warshal Closure Matrix: 
+
+W0:
+0	1	1	
+1	0	0	
+0	1	0	
+
+W1:
+0	1	1	
+1	1	1	
+0	1	0	
+
+W2:
+1	1	1	
+1	1	1	
+1	1	1	
+
+W3:
+1	1	1	
+1	1	1	
+1	1	1	
+samkit5495@ubuntu:~/Desktop/DAA/3$ 
+

@@ -1,0 +1,46 @@
+Insert data  
+MongoClient mongoClient = new MongoClient("localhost", 27017);
+          DB db = mongoClient.getDB("Library");
+          DBCollection coll = db.getCollection("mybooks");
+          
+          BasicDBObject doc = new BasicDBObject("BID",jTextField1.getText()).append("Bkname",jTextField2.getText());
+
+          coll.insert(doc);
+
+Update data
+
+
+  MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+        
+         DB db = mongoClient.getDB( "Library" );
+	
+      	
+         DBCollection coll = db.getCollection("mybooks");
+       
+                         
+ 	BasicDBObject query = new BasicDBObject();
+	query.put("BID", jTextField1.getText());
+        
+ 	BasicDBObject newDocument = new BasicDBObject();
+	newDocument.put("Bkname", jTextField2.getText());
+        
+ 	BasicDBObject updateObj = new BasicDBObject();
+	updateObj.put("$set", newDocument);
+ 
+	coll.update(query, updateObj);
+
+
+Delete
+ MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+         // Now connect to your databases
+         DB db = mongoClient.getDB( "Library" );
+	 System.out.println("Connect to database successfully");
+      	
+         DBCollection coll = db.getCollection("mybooks");
+         
+        
+ 
+	BasicDBObject searchQuery = new BasicDBObject();
+	searchQuery.put("BID", jTextField1.getText());
+ 
+	coll.remove(searchQuery)

@@ -1,0 +1,51 @@
+
+Output:
+
+student@mml19:~/Desktop$ cc Huffman.c
+student@mml19:~/Desktop$ ./a.out
+Enter count of data to be encoded: 4
+1. Enter Symbol: a
+1. its frequency: 2
+2. Enter Symbol: b
+2. its frequency: 5
+3. Enter Symbol: c
+3. its frequency: 7
+4. Enter Symbol: d
+4. its frequency: 9
+d: 0
+c: 10
+a: 110
+b: 111
+
+1. Decode
+2. Exit
+Enter Your Choice: 1
+
+Enter binary data to decode: 10
+Decoded data is c
+
+1. Decode
+2. Exit
+Enter Your Choice: 1
+
+Enter binary data to decode: 111
+Decoded data is b
+
+1. Decode
+2. Exit
+Enter Your Choice: 1
+
+Enter binary data to decode: 010
+Data Not Found!!!
+
+1. Decode
+2. Exit
+Enter Your Choice: 1
+
+Enter binary data to decode: 1010
+Data Not Found!!!
+
+1. Decode
+2. Exit
+Enter Your Choice: 2
+student@mml19:~/Desktop$ 

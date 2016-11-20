@@ -1,0 +1,3 @@
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 3\Digest>javac digest.java
+
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 3\Digest>java digest

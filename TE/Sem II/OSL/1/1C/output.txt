@@ -1,0 +1,15 @@
+samkit5495@ubuntu:~/Desktop$ cc binary.c -o bin
+samkit5495@ubuntu:~/Desktop$ cc bubble.c -o bub
+samkit5495@ubuntu:~/Desktop$ ./bub bin
+Enter no of elements: 5
+Enter Elements: 3
+5
+7
+1
+9
+
+Entered Elements: 3 5 7 1 9 
+Sorted Elements: 1 3 5 7 9 
+Enter element to search: 5
+samkit5495@ubuntu:~/Desktop$ 5 found at location 3.
+

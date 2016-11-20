@@ -1,0 +1,13 @@
+
+Output:
+
+samkit5495@ubuntu:~/Desktop$ cc Pipe.c
+samkit5495@ubuntu:~/Desktop$ ./a.out Input
+Received File Name Input
+No of bytes Received: 5
+Context of file:
+Hii,
+	I am samkit jain from TEIT.
+	I love coding!!!!
+No of bytes in file 54
+samkit5495@ubuntu:~/Desktop$

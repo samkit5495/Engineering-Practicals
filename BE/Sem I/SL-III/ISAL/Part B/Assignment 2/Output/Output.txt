@@ -1,0 +1,8 @@
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 3>javac SignatureTest.java
+
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 3>java SignatureTest -genkeypair public.txt private.txt
+
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 3>java SignatureTest -sign data.txt cypher.txt private.txt
+
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 3>java SignatureTest -verify cypher.txt public.txt
+verified

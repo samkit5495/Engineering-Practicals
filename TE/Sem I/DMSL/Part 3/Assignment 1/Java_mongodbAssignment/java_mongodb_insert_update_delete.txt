@@ -1,0 +1,94 @@
+import com.mongodb.*;
+import java.net.UnknownHostException;
+import java.util.Set;
+import com.mongodb.DBCollection;
+
+
+ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        try
+        {
+        BID = jTextField1.getText();
+        Bkname = jTextField2.getText();
+       // dept = jTextField3.getText();
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+          DB db = mongoClient.getDB("Library");
+          DBCollection coll = db.getCollection("mybooks");
+           Set<String> colls = db.getCollectionNames();
+
+          for (String s : colls) {
+              System.out.println(s);
+          }
+          BasicDBObject doc = new BasicDBObject("BID",BID).append("Bkname",Bkname);
+
+          coll.insert(doc);
+//DBCursor myDoc = coll.find();
+//System.out.println(myDoc);
+          System.out.println(coll.getCount());
+          DBCursor cursor = coll.find();
+          try {
+              while (cursor.hasNext()) {
+                  System.out.println(cursor.next());
+              }
+          } finally {
+              cursor.close();
+          }
+        }
+        catch(UnknownHostException e){
+
+        }
+ 
+
+    }                                        
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+          try{   
+	 // To connect to mongodb server
+         MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+         // Now connect to your databases
+         DB db = mongoClient.getDB( "Library" );
+	 System.out.println("Connect to database successfully");
+      	
+         DBCollection coll = db.getCollection("mybooks");
+       
+                         
+ 	BasicDBObject query = new BasicDBObject();
+	query.put("BID", jTextField1.getText());
+        
+ 	BasicDBObject newDocument = new BasicDBObject();
+	newDocument.put("Bkname", jTextField2.getText());
+        
+ 	BasicDBObject updateObj = new BasicDBObject();
+	updateObj.put("$set", newDocument);
+ 
+	coll.update(query, updateObj);
+          } 
+          catch(Exception e){
+	     System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+	  }
+    }                                        
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        try{   
+	 // To connect to mongodb server
+         MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
+         // Now connect to your databases
+         DB db = mongoClient.getDB( "Library" );
+	 System.out.println("Connect to database successfully");
+      	
+         DBCollection coll = db.getCollection("mybooks");
+         
+        
+ 
+	BasicDBObject searchQuery = new BasicDBObject();
+	searchQuery.put("BID", jTextField1.getText());
+ 
+	coll.remove(searchQuery);
+         } 
+          catch(Exception e){
+	     System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+	  }
+       
+    }

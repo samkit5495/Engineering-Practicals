@@ -1,0 +1,6 @@
+******
+Amount is 650
+Payment done using Paytm
+******
+Amount is 650
+Payment done using credit card

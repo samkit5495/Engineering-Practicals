@@ -1,0 +1,69 @@
+class Watch.DisplayTime
+Hr:Min
+12:52
+
+0. Exit
+1. Button A
+2. Button B
+1
+class Watch.SetHours
+Hr:Min
+12:52
+
+0. Exit
+1. Button A
+2. Button B
+2
+class Watch.SetHours
+Hr:Min
+01:52
+
+0. Exit
+1. Button A
+2. Button B
+2
+class Watch.SetHours
+Hr:Min
+02:52
+
+0. Exit
+1. Button A
+2. Button B
+1
+class Watch.SetMinutes
+Hr:Min
+02:52
+
+0. Exit
+1. Button A
+2. Button B
+2
+class Watch.SetMinutes
+Hr:Min
+02:53
+
+0. Exit
+1. Button A
+2. Button B
+2
+class Watch.SetMinutes
+Hr:Min
+02:54
+
+0. Exit
+1. Button A
+2. Button B
+1
+class Watch.DisplayTime
+Hr:Min
+02:54
+
+0. Exit
+1. Button A
+2. Button B
+2
+No Change
+0. Exit
+1. Button A
+2. Button B
+0

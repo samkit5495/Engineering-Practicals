@@ -1,0 +1,11 @@
+samkit5495@ubuntu:~/Desktop/5/Calculator$ lex Calc.l
+samkit5495@ubuntu:~/Desktop/5/Calculator$ yacc Calc.y
+samkit5495@ubuntu:~/Desktop/5/Calculator$ cc lex.yy.c y.tab.c -ll -lm
+samkit5495@ubuntu:~/Desktop/5/Calculator$ ./a.out
+
+Enter the Expression: (((2+2)*5)/4)
+Result=5
+samkit5495@ubuntu:~/Desktop/5/Calculator$ 
+
+
+

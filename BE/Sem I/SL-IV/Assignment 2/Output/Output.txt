@@ -1,0 +1,374 @@
+Samkit Tours And Travels
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+5
+Enter ID
+1
+Enter Source
+kondhwa
+Enter Destination
+katraj
+Enter Duration
+1
+Enter Cost
+50
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+5
+Enter ID
+2
+Enter Source
+katraj
+Enter Destination
+balajinagar
+Enter Duration
+1
+Enter Cost
+30
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+6
+Plan [id=1, source=kondhwa, destination=katraj, duration=1, cost=50.0]
+Plan [id=2, source=katraj, destination=balajinagar, duration=1, cost=30.0]
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+1
+Enter Name
+samkit
+Enter Address
+kondhwa
+Enter Mobile No
+8600086024
+Enter Age
+21
+Select Gender
+1. Male
+2. Female
+1
+Customer [name=samkit, address=kondhwa, mobileNo=8600086024, age=21, gender=Male]
+0. Back
+1. New Booking
+2. Previous Bookings
+1
+Plan [id=1, source=kondhwa, destination=katraj, duration=1, cost=50.0]
+Plan [id=2, source=katraj, destination=balajinagar, duration=1, cost=30.0]
+Select Plan
+1
+Date: Sat Jul 30 20:52:56 IST 2016
+Customer Name: samkit
+Mobile No: 8600086024
+____________________________________________________
+Plan Details:
+____________________________________________________
+Source: kondhwa
+Destination: katraj
+Duation: 1 Days
+____________________________________________________
+Cost:		50.0
+Tax:		2.5
+____________________________________________________
+Total Amount: 52.5
+____________________________________________________
+Enter Paid Amount: 
+50
+0. Back
+1. New Booking
+2. Previous Bookings
+1
+Plan [id=1, source=kondhwa, destination=katraj, duration=1, cost=50.0]
+Customer [name=samkit, address=kondhwa, mobileNo=8600086024, age=21, gender=Male]
+Plan [id=2, source=katraj, destination=balajinagar, duration=1, cost=30.0]
+Select Plan
+2
+Date: Sat Jul 30 20:53:04 IST 2016
+Customer Name: samkit
+Mobile No: 8600086024
+____________________________________________________
+Plan Details:
+____________________________________________________
+Source: katraj
+Destination: balajinagar
+Duation: 1 Days
+____________________________________________________
+Cost:		30.0
+Tax:		1.5
+____________________________________________________
+Total Amount: 31.5
+____________________________________________________
+Enter Paid Amount: 
+30
+0. Back
+1. New Booking
+2. Previous Bookings
+0
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+2
+Customer [name=samkit, address=kondhwa, mobileNo=8600086024, age=21, gender=Male]
+Enter Customer Name
+samkit
+Customer [name=samkit, address=kondhwa, mobileNo=8600086024, age=21, gender=Male]
+0. Back
+1. New Booking
+2. Previous Bookings
+2
+
+Plan Details:
+Date: Sat Jul 30 20:52:56 IST 2016
+____________________________________________________
+Source: kondhwa
+Destination: katraj
+Duration: 1
+____________________________________________________
+Cost:		50.0
+Tax:		2.5
+____________________________________________________
+Total Amount: 52.5
+____________________________________________________
+
+Plan Details:
+Date: Sat Jul 30 20:53:04 IST 2016
+____________________________________________________
+Source: katraj
+Destination: balajinagar
+Duration: 1
+____________________________________________________
+Cost:		30.0
+Tax:		1.5
+____________________________________________________
+Total Amount: 31.5
+____________________________________________________
+0. Back
+1. New Booking
+2. Previous Bookings
+0
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+3
+Enter Vehicle No
+MH12HJ523
+Enter Vehicle Model
+WEGO
+Enter Vehicle Type
+2
+Enter Capacity
+2
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+4
+Vehicle [vehicleNumber=MH12HJ523, vehicleModel=WEGO, vehicleType=2, vehicleCapacity=2]
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+7
+1. Driving Staff
+2. Working Staff
+1
+Enter Staff Name
+chinmay
+Enter Salary
+500
+Enter Mobile No
+9096561995
+Enter Age
+16
+Select Gender
+1. Male
+2. Female
+1
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+7
+1. Driving Staff
+2. Working Staff
+2
+Designation
+Manager
+Enter Staff Name
+aish
+Enter Salary
+5000
+Enter Mobile No
+1354651565
+Enter Age
+21
+Select Gender
+1. Male
+2. Female
+2
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+8
+WorkingStaff [designation=Manager, name=aish, salary=5000.0, mobileNo=1354651565, age=21, gender=Female]
+DriverStaff [licenseNoList=[], name=chinmay, salary=500.0, mobileNo=9096561995, age=16, gender=Male]
+Enter Staff Name
+aish
+0. Back
+1. Calculate Salary
+2. Change Designation
+1
+Enter Attendence out of 31
+30
+4838.709677419354
+0. Back
+1. Calculate Salary
+2. Change Designation
+2
+Enter New Designation
+HeadManager
+0. Back
+1. Calculate Salary
+2. Change Designation
+0
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+8
+WorkingStaff [designation=HeadManager, name=aish, salary=5000.0, mobileNo=1354651565, age=21, gender=Female]
+DriverStaff [licenseNoList=[], name=chinmay, salary=500.0, mobileNo=9096561995, age=16, gender=Male]
+Enter Staff Name
+chinmay
+0. Back
+1. Calculate Salary
+2. Show License
+3. Add License
+1
+Enter Attendence out of 31
+20
+10150.0
+0. Back
+1. Calculate Salary
+2. Show License
+3. Add License
+3
+Enter License No
+123465as54
+0. Back
+1. Calculate Salary
+2. Show License
+3. Add License
+3
+Enter License No
+as31asd13s
+0. Back
+1. Calculate Salary
+2. Show License
+3. Add License
+2
+License List
+123465as54
+as31asd13s
+0. Back
+1. Calculate Salary
+2. Show License
+3. Add License
+0
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+9
+Todays Business: 80.0
+0. Exit
+1. New Customer
+2. Select Customer
+3. New Vehicle
+4. Show Vehicle
+5. New Plan
+6. Show Plan
+7. New Staff
+8. Select Staff
+9. Todays Business
+0

@@ -1,0 +1,21 @@
+
+	Assignment 4
+
+Output:
+
+samkit5495@ubuntu:~/Desktop/DAA/4$ cc NQueens.c
+samkit5495@ubuntu:~/Desktop/DAA/4$ ./a.out
+Enter No of queens to place: 4
+All fissible solutions:
+1.)
+ -  Q  -  - 
+ -  -  -  Q 
+ Q  -  -  - 
+ -  -  Q  - 
+2.)
+ -  -  Q  - 
+ Q  -  -  - 
+ -  -  -  Q 
+ -  Q  -  - 
+samkit5495@ubuntu:~/Desktop/DAA/4$ 
+

@@ -1,0 +1,118 @@
+
+Enter No of Cities: 5
+Enter Cost Matrix:
+Enter elements of row:1 999 11 10 9 6
+Enter elements of row:2 8 999 7 3 4
+Enter elements of row:3 8 4 999 4 8
+Enter elements of row:4 11 10 5 999 5
+Enter elements of row:5 6 9 5 5 999
+Cost Matrix:
+  999   11   10    9    6
+    8  999    7    3    4
+    8    4  999    4    8
+   11   10    5  999    5
+    6    9    5    5  999
+
+Reduced Matrix for Node no: 1 is:
+
+  999    5    4    3    0
+    4  999    4    0    1
+    3    0  999    0    4
+    5    5    0  999    0
+    0    4    0    0  999
+Reduced Matrix for Node no: 2 is:
+
+  999  999  999  999  999
+  999  999    4    0    1
+    3  999  999    0    4
+    5  999    0  999    0
+    0  999    0    0  999
+Cost of Node2=29
+
+Reduced Matrix for Node no: 3 is:
+
+  999  999  999  999  999
+    4  999  999    0    1
+  999    0  999    0    4
+    5    5  999  999    0
+    0    4  999    0  999
+Cost of Node3=28
+
+Reduced Matrix for Node no: 4 is:
+
+  999  999  999  999  999
+    3  999    3  999    0
+    3    0  999  999    4
+  999    5    0  999    0
+    0    4    0  999  999
+Cost of Node4=28
+
+Reduced Matrix for Node no: 5 is:
+
+  999  999  999  999  999
+    1  999    4    0  999
+    0    0  999    0  999
+    2    5    0  999  999
+  999    4    0    0  999
+Cost of Node5=27
+Minimum cost city is= 5 and its cost is 27
+
+Reduced Matrix for Node no: 6 is:
+
+  999  999  999  999  999
+  999  999    4    0  999
+    0  999  999    0  999
+    2  999    0  999  999
+  999  999  999  999  999
+Cost of Node6=31
+
+Reduced Matrix for Node no: 7 is:
+
+  999  999  999  999  999
+    1  999  999    0  999
+  999    0  999    0  999
+    0    3  999  999  999
+  999  999  999  999  999
+Cost of Node7=29
+
+Reduced Matrix for Node no: 8 is:
+
+  999  999  999  999  999
+    0  999    3  999  999
+    0    0  999  999  999
+  999    5    0  999  999
+  999  999  999  999  999
+Cost of Node8=28
+Minimum cost city is= 4 and its cost is 28
+
+Reduced Matrix for Node no: 9 is:
+
+  999  999  999  999  999
+  999  999    0  999  999
+    0  999  999  999  999
+  999  999  999  999  999
+  999  999  999  999  999
+Cost of Node9=36
+
+Reduced Matrix for Node no: 10 is:
+
+  999  999  999  999  999
+    0  999  999  999  999
+  999    0  999  999  999
+  999  999  999  999  999
+  999  999  999  999  999
+Cost of Node10=28
+Minimum cost city is= 3 and its cost is 28
+
+Reduced Matrix for Node no: 11 is:
+
+  999  999  999  999  999
+  999  999  999  999  999
+  999  999  999  999  999
+  999  999  999  999  999
+  999  999  999  999  999
+Cost of Node11=28
+Minimum cost city is= 2 and its cost is 28
+
+The path of tour is:     1    5    4    3    2    1
+Minimum cost of tour is: 28

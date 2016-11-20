@@ -1,0 +1,468 @@
+Mikael Koskinen
+
+Windows Phone, Windows 8, Windows Azure
+
+Windows Phone
+WinRT
+Other
+Projects
+Graze
+SocketEx
+MarketWatcher
+Contact
+Wensus Analytics
+MongoDB Aggregation Framework Examples in C#
+
+October 10, 2012 By Mikael Koskinen 9 Comments
+MongoDB version 2.2 was released in late August and the biggest change it brought was the addition of the Aggregation Framework. Previously the aggregations required the usage of map/reduce, which in MongoDB doesn’t perform that well, mainly because of the single-threaded Javascript-based execution.  The aggregation framework steps away from the Javascript and is implemented in C++, with an aim to accelerate performance of analytics and reporting up to 80 percent compared to using MapReduce.
+
+The aim of this post is to show examples of running the MongoDB Aggregation Framework with the official MongoDB C# drivers.
+
+Aggregation Framework and Linq
+
+Even though the current version of the MongoDB C# drivers (1.6) supports Linq, the support doesn’t extend to the aggregation framework. It’s highly probable that the Linq-support will be added later on and there’s already some hints about this in the driver’s source code. But at this point the execution of the aggregations requires the usage of the BsonDocument-objects.
+
+Aggregation Framework and GUIDs
+
+If you use GUIDs in your documents, the aggregation framework doesn’t work. This is because by default the GUIDs are stored in binary format and the aggregations won’t work against documents which contain binary data.. The solution is to store the GUIDs as strings. You can force the C# drivers to make this conversion automatically by configuring the mapping. Given that your C# class has Id-property defined as a GUID, the following code tells the driver to serialize the GUID as a string:
+
+BsonClassMap.RegisterClassMap<MyClass>(cm => 
+{ 
+    cm.AutoMap(); 
+    cm.GetMemberMap(c => c.Id) 
+      .SetRepresentation( 
+          BsonType.String); 
+});
+The example data
+
+These examples use the following documents:
+
+> db.examples.find()
+{ “_id” : “1?, “User” : “Tom”, “Country” : “Finland”, “Count” : 1 }
+{ “_id” : “2?, “User” : “Tom”, “Country” : “Finland”, “Count” : 3 }
+{ “_id” : “3?, “User” : “Tom”, “Country” : “Finland”, “Count” : 2 }
+{ “_id” : “4?, “User” : “Mary”, “Country” : “Sweden”, “Count” : 1 }
+{ “_id” : “5?, “User” : “Mary”, “Country” : “Sweden”, “Count” : 7 }
+
+Example 1: Aggregation Framework Basic usage
+
+This example shows how the aggregation framework can be executed through C#. We’re not going run any calculations to the data, we’re just going to filter it by the User.
+
+To run the aggregations, you can use either the MongoDatabase.RunCommand –method or the helper MongoCollection.Aggregate. We’re going to use the latter:
+
+var coll = localDb.GetCollection("examples"); 
+... 
+coll.Aggregate(pipeline);
+The hardest part when working with Aggregation Framework through C# is building the pipeline. The pipeline is similar concept to the piping in PowerShell. Each operation in the pipeline will make modifications to the data: the operations can for example filter, group and project the data. In C#, the pipeline is a collection of BsonDocument object. Each document represents one operation.
+
+In our first example we need to do only one operation: $match. This operator will filter out the given documents. The following BsonDocument is a pipeline operation which filters out all the documents which don’t have User-field set to “Tom”.
+
+var match = new BsonDocument 
+                { 
+                    { 
+                        "$match", 
+                        new BsonDocument 
+                            { 
+                                {"User", "Tom"} 
+                            } 
+                    } 
+                };
+To execute this operation we add it to an array and pass the array to the MongoCollection.Aggregate-method:
+
+var pipeline = new[] { match }; 
+var result = coll.Aggregate(pipeline);
+The MongoCollection.Aggregate-method returns an AggregateResult-object. It’s ResultDocuments-property (IEnumarable<BsonDocument>) contains the documents which are the output of the aggregation. To check how many results there were, we can get the Count:
+
+var result = coll.Aggregate(pipeline); 
+Console.WriteLine(result.ResultDocuments.Count());
+image
+
+The result documents are BsonDocument-objects. If you have a C#-class which represent the documents, you can cast the results:
+
+var matchingExamples = result.ResultDocuments 
+    .Select(BsonSerializer.Deserialize<ExampleData>) 
+    .ToList();
+
+foreach (var example in matchingExamples) 
+{ 
+    var message = string.Format("{0} - {1}", example.User, example.Count); 
+    Console.WriteLine(message); 
+}
+image
+
+Another alternative is to use C#’s dynamic type. The following extension method uses JSON.net to convert a BsonDocument into a dynamic:
+
+public static class MongoExtensions 
+{ 
+    public static dynamic ToDynamic(this BsonDocument doc) 
+    { 
+        var json = doc.ToJson(); 
+        dynamic obj = JToken.Parse(json); 
+        return obj; 
+    } 
+}
+Here’s a way to convert all the result documents into dynamic objects:
+
+var matchingExamples = result.ResultDocuments 
+    .Select(x => x.ToDynamic()) 
+    .ToList();
+Example 2: Multiple filters & comparison operators
+
+This example filters the data with the following criteria:
+
+User: Tom
+Count: >= 2
+var match = new BsonDocument 
+                { 
+                    { 
+                        "$match", 
+                        new BsonDocument 
+                            { 
+                                {"User", "Tom"}, 
+                                {"Count", new BsonDocument 
+                                                   { 
+                                                       { 
+                                                           "$gte", 2 
+                                                       } 
+                                                   }} 
+                            } 
+                    } 
+                };
+The execution of this operation is identical to the first example:
+
+var pipeline = new[] { match }; 
+var result = coll.Aggregate(pipeline);
+var matchingExamples = result.ResultDocuments 
+    .Select(x => x.ToDynamic()) 
+    .ToList();
+Also the result are as expected:
+
+foreach (var example in matchingExamples) 
+{ 
+    var message = string.Format("{0} - {1}", example.User, example.Count); 
+    Console.WriteLine(message); 
+}
+image
+
+Example 3: Multiple operations
+
+In our first two examples, the pipeline was as simple as possible: It contained only one operation. This example will filter the data with the same exact criteria as the second example, but this time using two $match operations:
+
+User: Tom
+Count: >= 2
+var match = new BsonDocument 
+                { 
+                    { 
+                        "$match", 
+                        new BsonDocument 
+                            { 
+                                {"User", "Tom"} 
+                            } 
+                    } 
+                };
+var match2 = new BsonDocument 
+                { 
+                    { 
+                        "$match", 
+                        new BsonDocument 
+                            { 
+                                {"Count", new BsonDocument 
+                                                   { 
+                                                       { 
+                                                           "$gte", 2 
+                                                       } 
+                                                   }} 
+                            } 
+                    } 
+                };
+
+var pipeline = new[] { match, match2 };
+The output stays the same:
+
+image
+
+The first operation “match” takes all the documents from the examples collection and removes every document which doesn’t match the criteria User = Tom. The output of this operation (3 documents) then moves to the second operation “match2” of the pipeline. This operation only sees those 3 documents, not the original collection. The operation filters out these documents based on its criteria and moves the result (2 documents) forward. This is where our pipeline ends and this is also our result.
+
+Example 4: Group and sum
+
+Thus far we’ve used the aggregation framework to just filter out the data. The true strength of the framework is its ability to run calculations on the documents. This example shows how we can calculate how many documents there are in the collection, grouped by the user. This is done using the $group-operator:
+
+var group = new BsonDocument 
+                { 
+                    { "$group", 
+                        new BsonDocument 
+                            { 
+                                { "_id", new BsonDocument 
+                                             { 
+                                                 { 
+                                                     "MyUser","$User" 
+                                                 } 
+                                             } 
+                                }, 
+                                { 
+                                    "Count", new BsonDocument 
+                                                 { 
+                                                     { 
+                                                         "$sum", 1 
+                                                     } 
+                                                 } 
+                                } 
+                            } 
+                  } 
+                };
+The grouping key (in our case the User-field) is defined with the _id. The above example states that the grouping key has one field (“MyUser”) and the value for that field comes from the document’s User-field ($User). In the $group operation the other fields are aggregate functions. This example defines the field “Count” and adds 1 to it for every document that matches the group key (_id).
+
+var pipeline = new[] { group }; 
+var result = coll.Aggregate(pipeline);
+
+var matchingExamples = result.ResultDocuments 
+    .Select(x => x.ToDynamic()) 
+    .ToList();
+
+foreach (var example in matchingExamples) 
+{ 
+    var message = string.Format("{0} - {1}", example._id.MyUser, example.Count); 
+    Console.WriteLine(message); 
+}
+image
+
+Note the format in which the results are outputted: The user’s name is accessed through _id.MyUser-property.
+
+Example 5: Group and sum by field
+
+This example is similar to example 4. But instead of calculating the amount of documents, we calculate the sum of the Count-fields by the user:
+
+var group = new BsonDocument 
+                { 
+                    { "$group", 
+                        new BsonDocument 
+                            { 
+                                { "_id", new BsonDocument 
+                                             { 
+                                                 { 
+                                                     "MyUser","$User" 
+                                                 } 
+                                             } 
+                                }, 
+                                { 
+                                    "Count", new BsonDocument 
+                                                 { 
+                                                     { 
+                                                         "$sum", "$Count" 
+                                                     } 
+                                                 } 
+                                } 
+                            } 
+                  } 
+                };
+The only change is that instead of adding 1, we add the value from the Count-field (“$Count”).
+
+image
+
+Example 6: Projections
+
+This example shows how the $project operator can be used to change the format of the output. The grouping in example 5 works well, but to access the user’s name we currently have to point to the _id.MyUser-property. Let’s change this so that user’s name is available directly through UserName-property:
+
+var group = new BsonDocument 
+                { 
+                    { "$group", 
+                        new BsonDocument 
+                            { 
+                                { "_id", new BsonDocument 
+                                             { 
+                                                 { 
+                                                     "MyUser","$User" 
+                                                 } 
+                                             } 
+                                }, 
+                                { 
+                                    "Count", new BsonDocument 
+                                                 { 
+                                                     { 
+                                                         "$sum", "$Count" 
+                                                     } 
+                                                 } 
+                                } 
+                            } 
+                  } 
+                };
+
+var project = new BsonDocument 
+                { 
+                    { 
+                        "$project", 
+                        new BsonDocument 
+                            { 
+                                {"_id", 0}, 
+                                {"UserName","$_id.MyUser"}, 
+                                {"Count", 1}, 
+                            } 
+                    } 
+                };
+
+var pipeline = new[] { group, project };
+The code removes the _id –property from the output. It adds the UserName-property, which value is accessed from field _id.MyUser. The projection operations also states that the Count-value should stay as it is.
+
+var matchingExamples = result.ResultDocuments 
+    .Select(x => x.ToDynamic()) 
+    .ToList();
+
+foreach (var example in matchingExamples) 
+{ 
+    var message = string.Format("{0} - {1}", example.UserName, example.Count); 
+    Console.WriteLine(message); 
+}
+image
+
+Example 7: Group with multiple fields in the keys
+
+For this example we add a new row into our document collection, leaving us with the following:
+
+{ “_id” : “1?, “User” : “Tom”, “Country” : “Finland”, “Count” : 1 }
+{ “_id” : “2?, “User” : “Tom”, “Country” : “Finland”, “Count” : 3 }
+{ “_id” : “3?, “User” : “Tom”, “Country” : “Finland”, “Count” : 2 }
+{ “_id” : “4?, “User” : “Mary”, “Country” : “Sweden”, “Count” : 1 }
+{ “_id” : “5?, “User” : “Mary”, “Country” : “Sweden”, “Count” : 7 }
+{ “_id” : “6?, “User” : “Tom”, “Country” : “England”, “Count” : 3 }
+
+This example shows how you can group the data by using multiple fields in the grouping key:
+
+var group = new BsonDocument 
+                { 
+                    { "$group", 
+                        new BsonDocument 
+                            { 
+                                { "_id", new BsonDocument 
+                                             { 
+                                                 { "MyUser","$User" }, 
+                                                 { "Country","$Country" }, 
+                                             } 
+                                }, 
+                                { 
+                                    "Count", new BsonDocument 
+                                                 { 
+                                                     { "$sum", "$Count" } 
+                                                 } 
+                                } 
+                            } 
+                  } 
+                };
+
+var project = new BsonDocument 
+                { 
+                    { 
+                        "$project", 
+                        new BsonDocument 
+                            { 
+                                {"_id", 0}, 
+                                {"UserName","$_id.MyUser"}, 
+                                {"Country", "$_id.Country"}, 
+                                {"Count", 1}, 
+                            } 
+                    } 
+                };
+
+var pipeline = new[] { group, project }; 
+var result = coll.Aggregate(pipeline);
+
+var matchingExamples = result.ResultDocuments 
+    .Select(x => x.ToDynamic()) 
+    .ToList();
+
+foreach (var example in matchingExamples) 
+{ 
+    var message = string.Format("{0} - {1} - {2}", example.UserName, example.Country, example.Count); 
+    Console.WriteLine(message); 
+}
+image
+
+Example 8: Match, group and project
+
+This example shows how you can combine many different pipeline operations. The data is first filtered ($match) by User=Tom, then grouped by the Country (“$group”) and finally the output is formatted into a readable format ($project).
+
+Match:
+
+var match = new BsonDocument 
+                { 
+                    { 
+                        "$match", 
+                        new BsonDocument 
+                            { 
+                                {"User", "Tom"} 
+                            } 
+                    } 
+                };
+Group:
+
+var group = new BsonDocument 
+                { 
+                    { "$group", 
+                        new BsonDocument 
+                            { 
+                                { "_id", new BsonDocument 
+                                             { 
+                                                 { "Country","$Country" }, 
+                                             } 
+                                }, 
+                                { 
+                                    "Count", new BsonDocument 
+                                                 { 
+                                                     { "$sum", "$Count" } 
+                                                 } 
+                                } 
+                            } 
+                  } 
+                };
+Project:
+
+var project = new BsonDocument 
+                { 
+                    { 
+                        "$project", 
+                        new BsonDocument 
+                            { 
+                                {"_id", 0}, 
+                                {"Country", "$_id.Country"}, 
+                                {"Count", 1}, 
+                            } 
+                    } 
+                };
+Result:
+
+var pipeline = new[] { match, group, project }; 
+var result = coll.Aggregate(pipeline);
+
+var matchingExamples = result.ResultDocuments 
+    .Select(x => x.ToDynamic()) 
+    .ToList();
+
+foreach (var example in matchingExamples) 
+{ 
+    var message = string.Format("{0} - {1}", example.Country, example.Count); 
+    Console.WriteLine(message); 
+}
+image
+
+More
+
+There are many other interesting operators in the MongoDB Aggregation Framework, like $unwind and $sort. The usage of these operators is identical to ones we used above so it should be possible to copy-paste one of the examples and use it as a basis for these other operations.
+
+Links
+
+MongoDB C# Language Center
+MongoDB Aggregation Framework
+Easy to follow blog post about the aggregation framework
+Filed Under: Development Tagged With: MongoDB
+
+Mikael is the founder of Adafy Oy, a Finnish software startup providing development services for Windows Phone, Windows 8 and Windows Azure
+
+?
+?
+Recent
+
+VB.NET and If-statements, part 2: If and nullable variables
+Why to prefer Windows.Storage over Isolated Storage in Windows Phone 8 apps?
+Debugging Windows Phone apps and error “A specified communication resource (port) is already in use by another application.”
+Return to top of page
+
+Log in

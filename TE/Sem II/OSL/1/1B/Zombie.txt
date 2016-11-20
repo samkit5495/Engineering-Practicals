@@ -1,0 +1,16 @@
+	----CHILD PROCESS----
+
+Child process id is : 12931
+
+	----PARENT PROCESS----
+
+Parent process id is : 12930
+USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+samkit5+  12887  0.2  0.0  26940  3908 pts/7    Ss   08:12   0:00 /bin/bash
+samkit5+  12930  0.0  0.0   4196   356 pts/7    S+   08:12   0:00 ./a.out
+samkit5+  12931  0.0  0.0      0     0 pts/7    Z+   08:12   0:00 [a.out] <defun
+samkit5+  12933  0.0  0.0   4444   648 pts/7    S+   08:12   0:00 sh -c ps u
+samkit5+  12934  0.0  0.0  22644  1308 pts/7    R+   08:12   0:00 ps u
+samkit5495@ubuntu:~/Desktop/OSL/1/1A$ 
+
+

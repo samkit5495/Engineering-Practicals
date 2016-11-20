@@ -1,0 +1,42 @@
+
+Output:
+
+samkit5495@ubuntu:~/Desktop$ cc Macro.c
+samkit5495@ubuntu:~/Desktop$ ./a.out
+
+	PNTAB
+Sr. No.	Name
+1	X
+2	Y
+3	OP
+
+	KPDTAB
+Sr. No.	Name	Value
+1	X	
+2	Y	
+3	OP	MULT
+
+	MNT
+Sr. No.	Name		PP	KP	EV	MDTP	KPDTP	SSTP
+1	MAC1	0	0	0	1	0	0
+2	CALC	0	3	0	5	1	0
+
+	MDT
+Sr. No.	Opcode	Operand 1	Operand 2
+1	MOVER	AREG		M
+2	ADD	BREG		M
+3	MOVEM	CREG		M
+4	MEND			
+5	MOVER	AREG		(P,#1)
+6	(P,#3)	AREG		(P,#2)
+7	MOVEM	AREG		(P,#1)
+8	MEND			
+9				
+
+	APTAB
+Sr. No.	Name
+1	P
+2	Q
+3	ADD
+samkit5495@ubuntu:~/Desktop$ 
+

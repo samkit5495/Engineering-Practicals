@@ -1,0 +1,152 @@
+<html>
+
+<head>
+
+<title>Form Validation</title>
+
+<style rel="stylesheet" type="text/css">
+	
+body
+{
+	margin: 50px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function validate()
+{
+	var fname=document.reg.fname;
+	var lname=document.reg.lname;
+	var uname=document.reg.uname;
+	var pwd=document.reg.pwd;
+	var cpwd=document.reg.cpwd;
+	var eid=document.reg.eid.value;
+	var gender=document.reg.gender;
+	var mob=document.reg.mob;
+
+	//First Name Validation
+	if(fname.value==null||fname.value=="")
+	{
+		alert("Enter First Name");
+		return false;
+	}
+	//Last Name Validation
+	if(lname.value==null||lname.value=="")
+	{
+		alert("Enter Last Name");
+		return false;
+	}
+	//Username Validation
+	if(uname.value==null||uname.value=="")
+	{
+		alert("Enter Username");
+		return false;
+	}
+	//Password Validation
+	if(pwd.value==null||pwd.value=="")
+	{
+		alert("Enter Password");
+		return false;
+	}
+	//Confirm Password Validation
+	if(pwd.value!=cpwd.value)
+	{
+		alert("Enter Correct Confirm Password");
+		return false;
+	}
+	//Email Validation
+	var atpos = eid.indexOf("@");
+	var dotpos = eid.lastIndexOf(".");
+ 	var elen=eid.length;
+	if ((atpos < 1) || ((dotpos-atpos)<=2) ||((elen-dotpos)<2))
+	{
+		alert("Enter Valid Email-Id");
+		return  false;
+	}
+	//Gender Validation
+	if(gender[0].checked==false&&gender[1].checked==false)
+	{
+		alert("Select Gender");
+		return false;
+	}
+	//Mobile No Validation
+	if(mob.value.length<10)
+	{
+		alert("Enter Valid Mobile No.");
+		return false;
+	}
+	if(isNaN(mob.value))
+	{
+		alert("Enter numeric value in Mob No.");
+		return false;
+	}
+	//Checkbox Validation
+	if(!document.reg.check1.checked)
+	{
+		alert("Agree the given conditions!");
+		return false;
+	}
+	return true;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1 align="center">Registration Form</h1>
+
+<hr>
+
+<form name="reg" method="post" action="success.html" onsubmit="return validate();">
+
+<table width="100%" align="center">
+	<tr>
+		<td>Name*</td>
+		<td><input type="text" name="fname" placeholder="First Name"> <input type="text" name="lname" placeholder="Last Name"></td>
+	</tr>
+	<tr>
+		<td>Username*</td>
+		<td><input type="text" name="uname" placeholder="Enter Username" maxlength="12"></td>
+	</tr>
+	<tr>
+		<td>Password*</td>
+		<td><input type="password" name="pwd" placeholder="Enter Password" maxlength="8"></td>
+	</tr>
+	<tr>
+		<td>Confirm Password*</td>
+		<td><input type="password" name="cpwd" placeholder="Confirm Password" maxlength="8"></td>
+	</tr>
+	<tr>
+		<td>Email Id*</td>
+		<td><input type="text" name="eid" placeholder="Enter Email-Id"></td>
+	</tr>
+	<tr>
+		<td>Gender*</td>
+		<td><input type="radio" value="male" name="gender"> Male<br>
+			<input type="radio" value="female" name="gender"> Female</td>
+	</tr>
+	<tr>
+		<td>Mobile No*</td>
+		<td><input type="text" name="mob" placeholder="Enter Mob No" maxlength="10"></td>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="checkbox" name="check1"> I agree all the term and conditions*</td>
+	</tr>
+	<tr>
+		<td colspan="2">All (*) fields are manditory</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit"> <input type="reset"></td>
+	</tr>
+</table>
+
+</form>
+
+</body>
+
+</html>

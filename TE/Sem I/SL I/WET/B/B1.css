@@ -1,0 +1,27 @@
+.menu ul
+{
+	list-style-type: none;
+	margin: 5%;
+	padding: 1em;
+}
+.menu ul li a
+{
+	display: block;
+	width: 12em;
+	background-color:yellow;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	border: 2px solid red;
+	padding: 1em;
+}
+.menu ul li a:hover
+{
+	color: red;
+	background-color:blue;
+
+}
+#horizontal ul li
+{
+	float: left;
+}

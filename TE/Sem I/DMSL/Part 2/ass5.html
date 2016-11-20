@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creation of array object in javascript using JSON</title>
+
+	<script type="text/javascript">
+
+	document.writeln("<h1>Example of JSON Array object</h1>");
+
+	var college=
+	{
+		"TE":
+		[
+			{"Name":"Samkit","Roll":20,"Age":20},
+			{"Name":"Aish","Roll":19,"Age":20}
+		],
+		"BE":
+		[
+			{"Name":"Jyoti","Roll":20,"Age":20},
+			{"Name":"Nitika","Roll":19,"Age":20}
+		]
+	};
+	
+	var i=0;
+	
+	document.writeln("<table border=4><tr>");
+
+	
+	for(i=0;i<college.TE.length;i++)
+	{
+		document.writeln("<td>");
+		document.writeln("<table border=2 width=100>");
+		document.writeln("<tr><td><b>Name</b></td><td width=50>"+college.TE[i].Name+"</td></tr>");
+		document.writeln("<tr><td><b>Roll No.</b></td><td width=50>"+college.TE[i].Roll+"</td></tr>");
+		document.writeln("<tr><td><b>Age</b></td><td width=50>"+college.TE[i].Age+"</td></tr>");
+		document.writeln("</table></td>");
+	}
+	for(i=0;i<college.BE.length;i++)
+	{
+		document.writeln("<td>");
+		document.writeln("<table border=2 width=100>");
+		document.writeln("<tr><td><b>Name</b></td><td width=50>"+college.BE[i].Name+"</td></tr>");
+		document.writeln("<tr><td><b>Roll No.</b></td><td width=50>"+college.BE[i].Roll+"</td></tr>");
+		document.writeln("<tr><td><b>Age</b></td><td width=50>"+college.BE[i].Age+"</td></tr>");
+		document.writeln("</table></td>");
+	}
+	document.writeln("</tr></table>");
+	</script>
+</head>
+<body>
+
+</body>
+</html>

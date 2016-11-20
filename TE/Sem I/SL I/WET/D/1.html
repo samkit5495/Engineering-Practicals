@@ -1,0 +1,89 @@
+<!--
+Name : Samkitkumar H. Jain
+Class : TEIT Roll. No. 20
+-->
+
+<html>
+
+<head>
+
+<title>Calculator</title>
+
+<style rel="stylesheet" type="text/css">
+	
+body
+{
+	margin: 50px;
+}
+
+input[type="button"]
+{
+	width:5em;
+	height: 5em;
+	margin: 5px;
+}
+
+input[type="text"]
+{
+	width:22em;
+	height: 3em;
+	margin: 1em;
+	border:3px inset lightblue;
+}
+
+</style>
+
+<script type="text/javascript">
+var inputstr="";
+
+function updatestr(val)
+{
+	inputstr+=val;
+	document.cal.dsp.value=inputstr;
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<h1 align="center">Calculator</h1>
+
+<hr>
+
+<form name="cal">
+
+<table align="center">
+	<tr>
+		<td>
+			<input type="text" name="dsp" size="27"><br>
+			<input type="button" value="Clear" style="width:11em;" onclick="dsp.value='';inputstr=''">
+			<input type="button" value="Mod" onclick="updatestr('%')">
+			<input type="button" value="*" onclick="updatestr('*')"><br>
+			<input type="button" value="7" onclick="updatestr('7')">
+			<input type="button" value="8" onclick="updatestr('8')">
+			<input type="button" value="9" onclick="updatestr('9')">
+			<input type="button" value="/" onclick="updatestr('/')"><br>
+			<input type="button" value="4" onclick="updatestr('4')">
+			<input type="button" value="5" onclick="updatestr('5')">
+			<input type="button" value="6" onclick="updatestr('6')">
+			<input type="button" value="-" onclick="updatestr('-')"><br>
+			<input type="button" value="1" onclick="updatestr('1')">
+			<input type="button" value="2" onclick="updatestr('2')">
+			<input type="button" value="3" onclick="updatestr('3')">
+			<input type="button" value="+" onclick="updatestr('+')"><br>
+			<input type="button" value="0" onclick="updatestr('0')">
+			<input type="button" value="00" onclick="updatestr('00')">
+			<input type="button" value="." onclick="updatestr('.')">
+			<input type="button" value="=" onclick="dsp.value=eval(inputstr);inputstr=''">
+		</td>
+	</tr>
+</table>
+
+</form>
+
+</body>
+
+</html>

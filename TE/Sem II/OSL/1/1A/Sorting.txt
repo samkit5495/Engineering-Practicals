@@ -1,0 +1,21 @@
+samkit5495@ubuntu:~/Desktop/OSL/1/1A$ cc Sorting.c
+samkit5495@ubuntu:~/Desktop/OSL/1/1A$ ./a.out
+Enter no of elements to be sorted: 5
+
+Enter Elements No. 
+1. 9
+2. 4
+3. 3
+4. 5
+5. 7
+Before Sort:
+
+{9, 4, 3, 5, 7}
+
+(Merge Sort) Sorted Array is:
+
+{3, 4, 5, 7, 9}
+samkit5495@ubuntu:~/Desktop/OSL/1/1A$ 
+(Quick Sort) Sorted Array is:
+
+{3, 4, 5, 7, 9}

@@ -1,0 +1,22 @@
+
+Output:
+
+student@student-OptiPlex-390:~/Desktop$ cc NamedPipe1.c -o p1
+student@student-OptiPlex-390:~/Desktop$ ./p1
+Result:
+Total Count of:
+Words:6
+Characters:24
+Line:1
+student@student-OptiPlex-390:~/Desktop$
+
+
+student@student-OptiPlex-390:~/Desktop$ cc NamedPipe2.c -o p2
+student@student-OptiPlex-390:~/Desktop$ ./p2
+Contents received:
+Hello
+My name is samkit jain.
+Total Count of:
+Words:6
+Characters:24
+Line:1.student@student-OptiPlex-390:~/Desktop$ 

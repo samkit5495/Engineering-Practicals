@@ -1,0 +1,27 @@
+<!--
+Name - Samkitkumar H Jain
+Class:TEIT Roll No. 20
+Assignment E-2
+-->
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Feedback Form</title>
+</head>
+<body>
+<?php
+	session_destroy();
+	echo "Logout";
+  ?>
+<hr>
+<h1 align="center">Feedback Form</h1>
+<hr>
+	<form action="script.php" method="post" align="center">
+			Username : <input type="text" name="username"><br><br>
+			Password : <input type="password" name="password"><br><br>
+			<input type="submit" name="login" value="Login">
+			<input type="reset">
+	</form>
+</body>
+</html>

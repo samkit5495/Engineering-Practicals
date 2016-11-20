@@ -1,0 +1,21 @@
+
+Output:
+
+Server.java
+
+Server Started and listening to the port 25000
+Enter value for y less than 11:5
+R1=2
+R2=10
+Key calculated at Bob's side:10
+
+Client.java
+
+Enter prime number:
+11
+Enter primitive root of 11:7
+Enter value for x less than 11:
+3
+R1=2
+R2=10
+Key calculated at Alice's side:10

@@ -1,0 +1,68 @@
+
+Output:
+
+student@mml19:~/Desktop/4B$ cc NQueensb.c
+student@mml19:~/Desktop/4B$ ./a.out
+Enter No of queens to place: 5
+All fissible solutions:
+1.)
+ Q  -  -  -  - 
+ -  -  Q  -  - 
+ -  -  -  -  Q 
+ -  Q  -  -  - 
+ -  -  -  Q  - 
+2.)
+ Q  -  -  -  - 
+ -  -  -  Q  - 
+ -  Q  -  -  - 
+ -  -  -  -  Q 
+ -  -  Q  -  - 
+3.)
+ -  Q  -  -  - 
+ -  -  -  Q  - 
+ Q  -  -  -  - 
+ -  -  Q  -  - 
+ -  -  -  -  Q 
+4.)
+ -  Q  -  -  - 
+ -  -  -  -  Q 
+ -  -  Q  -  - 
+ Q  -  -  -  - 
+ -  -  -  Q  - 
+5.)
+ -  -  Q  -  - 
+ Q  -  -  -  - 
+ -  -  -  Q  - 
+ -  Q  -  -  - 
+ -  -  -  -  Q 
+6.)
+ -  -  Q  -  - 
+ -  -  -  -  Q 
+ -  Q  -  -  - 
+ -  -  -  Q  - 
+ Q  -  -  -  - 
+7.)
+ -  -  -  Q  - 
+ Q  -  -  -  - 
+ -  -  Q  -  - 
+ -  -  -  -  Q 
+ -  Q  -  -  - 
+8.)
+ -  -  -  Q  - 
+ -  Q  -  -  - 
+ -  -  -  -  Q 
+ -  -  Q  -  - 
+ Q  -  -  -  - 
+9.)
+ -  -  -  -  Q 
+ -  Q  -  -  - 
+ -  -  -  Q  - 
+ Q  -  -  -  - 
+ -  -  Q  -  - 
+10.)
+ -  -  -  -  Q 
+ -  -  Q  -  - 
+ Q  -  -  -  - 
+ -  -  -  Q  - 
+ -  Q  -  -  - 
+student@mml19:~/Desktop/4B$ 

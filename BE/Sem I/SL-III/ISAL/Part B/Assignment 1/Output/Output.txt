@@ -1,0 +1,5 @@
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 1>java RSATest -genkey public.txt private.txt
+
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 1>java RSATest -encrypt data.txt cypher.txt public.txt
+
+D:\Dropbox\Documents\College Programs\SL-III\ISAL\Part B\Assignment 1>java RSATest -decrypt cypher.txt plain.txt private.txt

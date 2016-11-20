@@ -1,0 +1,19 @@
+samkit5495@ubuntu:~/Desktop/OSL/2$ cc thread.c -lpthread
+samkit5495@ubuntu:~/Desktop/OSL/2$ ./a.out
+In main thread:0
+Thread No: 0
+Status: 0
+In main thread:1
+Thread No: 1
+Status: 1
+In main thread:2
+Thread No: 2
+Status: 2
+In main thread:3
+Thread No: 3
+Status: 3
+In main thread:4
+Thread No: 4
+Status: 4
+samkit5495@ubuntu:~/Desktop/OSL/2$ 
+

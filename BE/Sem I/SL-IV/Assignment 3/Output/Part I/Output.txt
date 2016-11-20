@@ -1,0 +1,10 @@
+Document Progress Report is Acquired
+Document Progress Report is In progress
+Document Progress Report writing is complete
+Document Progress Report is Accepted
+Document Progress Report Published
+Document Progress Report is Acquired
+Document Progress Report is In progress
+Document Progress Report writing is complete
+Document Progress Report is Rejected
+Document Progress Report Not ready for Publishing

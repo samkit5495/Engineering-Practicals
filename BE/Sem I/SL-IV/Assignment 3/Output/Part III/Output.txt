@@ -1,0 +1,57 @@
+Enter Rating:
+1
+Current State:Worker
+No increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+2
+Current State:Worker
+No increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+3
+Current State:Worker
+10% increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+4
+Current State:Worker
+10% increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+5
+Current State:Worker
+Updated State: Supervisor
+10% increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+3
+Current State:Supervisor
+10% increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+5
+Current State:Supervisor
+Updated State: Manager
+10% increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+3
+Current State:Manager
+10% increment
+Enter 1 for Promotion and 0 to exit
+1
+Enter Rating:
+5
+Current State:Manager
+Updated State: Manager
+10% increment
+Enter 1 for Promotion and 0 to exit
+0
