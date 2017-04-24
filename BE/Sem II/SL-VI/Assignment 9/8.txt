@@ -1,0 +1,15 @@
+var params = {
+    TableName: 'customer',
+    // indexed attributes to query must include the hash key value of the table or index 
+    // with 'EQ' operator. Range conditions: EQ | NE | IN | LE | LT | GE | GT |
+    // BETWEEN | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH)
+    KeyConditions: [
+        dynamodb.Condition('Cust_id', 'EQ', 104),
+        // optional range key condition ...
+    ],
+};
+dynamodb.query(params, function(err, data) {
+    if (err) print(err); // an error occurred
+    else print(data); // successful response
+
+});

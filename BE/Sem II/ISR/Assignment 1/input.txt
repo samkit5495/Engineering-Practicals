@@ -1,0 +1,8 @@
+this this
+is not a regular file regular
+it contains some regular data
+about this file itself
+serial
+factorial
+equal
+factual

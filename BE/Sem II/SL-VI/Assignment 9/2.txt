@@ -1,0 +1,17 @@
+var params = {
+    TableName: 'customer',
+    Item: { // a map of attribute name to AttributeValue
+        
+        Cust_id: 100,
+        Cust_name:'Ravi',
+        address:'Sinhgad Road',
+        city:'Pune',
+        state:'Maharashtra',
+        zipcode:411041
+        // more attributes...
+    }
+};
+dynamodb.putItem(params, function(err, data) {
+    if (err) print(err); // an error occurred
+    else print(data); // successful response
+});

@@ -1,0 +1,55 @@
+Q 3 a 1
+
+DTD
+
+<!DOCTYPE db [
+
+<!ELEMENT emp (ename, children*, skills*)>
+<!ELEMENT children (name ,birthday)> 
+<!ELEMENT birthday (day, month, year)> 
+<!ELEMENT skills (type, exams*)>
+<!ELEMENT exams (year, city)>
+<!ELEMENT ename( #PCDATA)> 
+<!ELEMENT name( #PCDATA)>
+<!ELEMENT day( #PCDATA)> 
+<!ELEMENT month( #PCDATA)>
+<!ELEMENT year( #PCDATA)>
+<!ELEMENT type( #PCDATA)>
+<!ELEMENT city( #PCDATA)>
+
+]>
+ 
+
+XML
+
+<db>
+<emp>
+	<ename>Hasmukhlal</ename>
+	<children>
+		<name>Samkit</name>
+		<birthday>
+			<day>5</day>
+			<month>April</month>
+			<year>1995</year>
+		</birthday>
+	</children>
+	<skills>
+		<type>Typing</type>
+		<exams>
+			<year>1980</year>
+			<city>pune</city>
+		</exams>
+	</skills>
+</emp>
+</db>
+
+
+Q 3 a 2
+
+/db/emp/skills/type
+
+Q 3 a 3
+
+for $x in /db/emp/children
+where $x/birthday/month="March"
+return $x/name

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- New XML document created with EditiX XML Editor (http://www.editix.com) at Thu Jan 12 11:35:57 IST 2017 -->
+
+
+<Customer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/schema.xsd">
+
+
+<orders>
+
+	<custid>c101</custid>
+
+	<custname>Samkit</custname>
+
+	<itemname>TV</itemname>
+
+	<amount>10000</amount>
+
+</orders>
+
+
+<orders>
+
+	<custid>c102</custid>
+
+	<custname>Aish</custname>
+
+	<itemname>Fridge</itemname>
+
+	<amount>25000</amount>
+
+</orders>
+
+
+
+<orders>
+
+	<custid>c103</custid>
+
+	<custname>Prachin</custname>
+
+	<itemname>Laptop</itemname>
+
+	<amount>50000</amount>
+
+</orders>
+
+
+</Customer>

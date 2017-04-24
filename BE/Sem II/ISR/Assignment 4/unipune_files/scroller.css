@@ -1,0 +1,47 @@
+/*Default setting,its value isn't changed.*/
+.JWSSothinkBgC{background-color:transparent;}
+
+/*Global setting.    It: item    G:global*/
+.JWSItBS{border-style: none;}
+.JWSItBW{border-width:1px;}
+.JWSItBC{border-color:#454545;}
+.JWSGBgC{background-color:transparent;}
+.JWSGBgI{background-image:url("../images/right_news.jpg");}
+.JWSGBgR{background-repeat:repeat;}
+
+
+/*Global border setting      G:Global border  Sz::size    Cn: corner    Lt: left top
+  Rb: right bottom   Lb: left bottom  Rt: right top  T: top    Bt: bottom   L:left   Ri: right */
+.JWSGBS{border-style:solid;}
+.JWSGBW{border-width:1px;}
+.JWSGBC{border-color:#dfdfdf;}
+
+
+/*Item  or  item tip setting.   Ot: mouse out   Ov: mouse over    It:item     F: font    Tp: tip  i:item */
+
+/*Item 0 */
+.JWSItBgCi0{background-color:#FFFFFF;}
+.JWSOtFi0{font:bold 8pt Verdana,Arial;}
+.JWSOtFCi0{color:#003366;}
+.JWSOtFDi0{text-decoration:none;}
+.JWSOvFi0{font:bold 8pt Verdana,Arial;}
+.JWSOvFCi0{color:#000000;}
+.JWSOvFDi0{text-decoration:none;}
+
+/*Item 1 */
+.JWSItBgCi1{background-color:#FFFFFF;}
+.JWSOtFi1{font:bold 8pt Verdana,Arial;}
+.JWSOtFCi1{color:#003366;}
+.JWSOtFDi1{text-decoration:none;}
+.JWSOvFi1{font:bold 8pt Verdana,Arial;}
+.JWSOvFCi1{color:#000000;}
+.JWSOvFDi1{text-decoration:none;}
+
+/*Item 2 */
+.JWSItBgCi2{background-color:#FFFFFF;}
+.JWSOtFi2{font:bold 8pt Verdana,Arial;}
+.JWSOtFCi2{color:#003366;}
+.JWSOtFDi2{text-decoration:none;}
+.JWSOvFi2{font:bold 8pt Verdana,Arial;}
+.JWSOvFCi2{color:#000000;}
+.JWSOvFDi2{text-decoration:none;}

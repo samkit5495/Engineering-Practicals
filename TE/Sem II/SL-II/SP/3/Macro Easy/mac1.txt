@@ -1,0 +1,50 @@
+
+Output:
+
+student@itiss23:~/Desktop$ cc macro.c
+student@itiss23:~/Desktop$ ./a.out
+
+--------------------------------
+Parameter table
+
+no	parameter name
+1	&X
+2	&Y
+3	&Z
+4	
+--------------------------------
+--------------------------------
+Keyword parameter table
+
+no	keyword parameter name
+1		
+--------------------------------
+--------------------------------
+MNT table
+
+Name	#pp	#kp	#EV	MDTP	KPDTP	SSTP
+MAC1	0	0	0	1	0	0
+EVAL	3	0	0	5	0	0
+--------------------------------
+--------------------------------
+MDT table
+1 MOVER	AREG	M
+2 ADD	BREG	M
+3 MOVEM	CREG	M
+4 MEND		
+5 MOVER	AREG	(p,1)
+6 SUB	AREG	(p,2)
+7 ADD	AREG	(p,3)
+8 MOVER	AREG	(p,3)
+9 MEND		
+10 		
+
+--------------------------------
+--------------------------------
+Aptab table
+1 A
+2 B
+3 C
+
+--------------------------------student@itiss23:~/Desktop$ 
+

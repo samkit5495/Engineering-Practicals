@@ -1,0 +1,18 @@
+var params = {
+    TableName: 'customer',
+    Key: { // a map of attribute name to AttributeValue for all primary key attributes
+    
+        Cust_id: 104,
+        Cust_name:'Madhuri'
+        // more attributes...
+
+    },
+    
+    ReturnValues: 'ALL_OLD', // optional (NONE | ALL_OLD)
+    ReturnConsumedCapacity: 'NONE', // optional (NONE | TOTAL | INDEXES)
+    ReturnItemCollectionMetrics: 'NONE', // optional (NONE | SIZE)
+};
+dynamodb.deleteItem(params, function(err, data) {
+    if (err) print(err); // an error occurred
+    else print(data); // successful response
+});

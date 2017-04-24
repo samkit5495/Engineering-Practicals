@@ -1,0 +1,27 @@
+----------------------------------------
+
+Frequency 	 Word 
+
+---------------------------------------- 
+
+1		not
+
+3		regular
+
+2		file
+
+1		contain
+
+1		some
+
+1		data
+
+1		itself
+
+1		seri
+
+1		factori
+
+1		equ
+
+1		factu

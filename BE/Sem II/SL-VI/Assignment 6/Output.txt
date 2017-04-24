@@ -1,0 +1,26 @@
+
+Output:
+
+Enter 1 to insert
+1
+
+Q1
+7
+Q2
+[Samkit, Aishwarya, Prachin, Swapnil, Prasann, Ashwin, kishor]
+Q3
+80.0
+Q4
+Prasann
+Q5
+407001
+Q6
+[407001, 407002]
+Q7
+65.0
+Q8
+70.28571428571429
+Q9
+[Ashwin, kishor, Prasann, Prachin, Swapnil, Aishwarya, Samkit]
+Q10
+[Aishwarya, Prachin, Swapnil]

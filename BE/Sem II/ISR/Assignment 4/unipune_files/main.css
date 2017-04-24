@@ -1,0 +1,40 @@
+﻿
+body {
+	background-image:url(bck.gif);	
+background-color:#002b29;	
+               background-position:center;
+               background-attachment:fixed;
+margin-top:0;
+margin-left:1px
+	}
+
+.intro {
+	FONT: 0.9em Verdana, Arial, Helvetica, sans-serif; COLOR: #fff
+}
+.intro H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1.6em; BACKGROUND-IMAGE: none; PADDING-BOTTOM: 0px; COLOR: #fff; PADDING-TOP: 0px
+}
+.intro A.button {
+	BORDER-RIGHT: #bcecf2 1px solid; PADDING-RIGHT: 0.8em; BORDER-TOP: #bcecf2 1px solid; DISPLAY: block; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 0.4em; BORDER-LEFT: #bcecf2 1px solid; PADDING-TOP: 0.4em; BORDER-BOTTOM: #bcecf2 1px solid
+}
+.intro A.button IMG {
+	VERTICAL-ALIGN: middle; MARGIN-RIGHT: 5px
+}
+.intro A.button:link {
+	COLOR: #005856; TEXT-DECORATION: none
+}
+.intro A.button:visited {
+	COLOR: #005856; TEXT-DECORATION: none
+}
+.intro A.button:hover {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.intro A.button:hover {
+	BORDER-LEFT-COLOR: #fff; BORDER-BOTTOM-COLOR: #fff; BORDER-TOP-COLOR: #fff; BORDER-RIGHT-COLOR: #fff
+}
+.mainTitle {
+	PADDING-RIGHT: 1.07em; PADDING-LEFT: 1.4em; PADDING-BOTTOM: 0.6em; PADDING-TOP: 1em; BACKGROUND-COLOR: #3f4e6b
+}
+.mainTitle H1 {
+	BACKGROUND-IMAGE: none; MARGIN: 0px; FONT: 700 1.3em Tahoma, Verdana, Arial, Helvetica, sans-serif; COLOR: #fff; WHITE-SPACE: nowrap
+}

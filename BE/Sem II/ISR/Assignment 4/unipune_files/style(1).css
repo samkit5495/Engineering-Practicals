@@ -1,0 +1,86 @@
+﻿body {
+    font-family: 'calibri';
+    /*font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;*/
+}
+.tabb table {
+    border-collapse: collapse;
+    width:100%;   
+    margin:5px;
+    height:100%;
+    /*table-layout:fixed;*/
+   display:table;
+}
+
+.tabb  table, th, td {    
+    border: 1px solid gray;
+    padding:3px;
+    font-size:15px;
+    width:165px;
+}
+.tabb a{
+    text-decoration:none;
+}
+.tabb img{
+    width:40px;    
+}
+.tabb span{
+   font-size:15px;
+   font-weight:bold; 
+}
+
+
+
+#tabbTeachers table {
+    border-collapse: collapse;
+    width:100%;   
+    margin:5px;
+    
+}
+
+
+#tabbTeachers a{
+    text-decoration:none;    
+}
+#tabbTeachers img{
+    width:40px;    
+    padding-right:5px;
+    float:left;
+}
+#tabbTeachers span{
+    display:inline-block;
+    margin-top:6px;   
+}
+
+#tabbDepartment table {
+    border-collapse: collapse;
+    width:100%;   
+    margin:5px;
+    
+}
+
+#tabbDepartment  table, th, td {    
+    border: 1px solid gray;
+    padding:5px;
+    font-size:15px;
+    width:200px;
+    text-align:left;
+}
+#tabbTeachers  table, th, td {    
+    border: 1px solid gray;
+    padding:3px;
+    font-size:14px;
+    width:200px;
+    text-align:left;
+}
+#tabbDepartment a{
+    text-decoration:none;
+}
+#tabbDepartment img{
+    width:40px;    
+    padding-right:5px;
+    float:left;
+}
+#tabbDepartment span{
+    display:inline-block;
+    margin-top:6px;   
+}

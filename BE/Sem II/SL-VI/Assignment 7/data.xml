@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- New XML document created with EditiX XML Editor (http://www.editix.com) at Sun Apr 23 13:11:42 IST 2017 -->
+
+
+<BEIT xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+
+<Student>
+<first_name>Samkit</first_name>
+<last_name>Jain</last_name>
+<nick_name>Sam</nick_name>
+<marks>100</marks>
+</Student>
+
+<Student>
+<first_name>Aishwarya</first_name>
+<last_name>Jagtap</last_name>
+<nick_name>Aish</nick_name>
+<marks>99</marks>
+</Student>
+
+<Student>
+<first_name>Prachin</first_name>
+<last_name>Ranawat</last_name>
+<nick_name>Chin</nick_name>
+<marks>98</marks>
+</Student>
+
+<Student>
+<first_name>Prateek</first_name>
+<last_name>Sakaray</last_name>
+<nick_name>teek</nick_name>
+<marks>97</marks>
+</Student>
+
+</BEIT>

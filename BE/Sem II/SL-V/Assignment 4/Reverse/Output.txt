@@ -1,0 +1,34 @@
+
+Output:
+
+Install following software before executing the program:
+
+sudo apt-get install libopenmpi-dev
+
+Server Side:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 4$ mpicc server.c -o server
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 4$ mpicc client.c -o client
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 4$ mpirun -np 1 ./server
+Server available at port: 2223636480.0;tcp://192.168.1.106:51635+2223636481.0;tcp://192.168.1.106::300
+Received character: s
+Received character: a
+Received character: m
+Received character: k
+Received character: i
+Received character: t
+
+Received String: samkit
+
+Reversed string is : tikmas
+
+Client Side:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 4$ mpirun -np 1 ./client '2223636480.0;tcp://192.168.1.106:51635+2223636481.0;tcp://192.168.1.106::300'
+
+Enter the string :
+samkit
+
+Reversed string is : tikmas
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 4$ 

@@ -1,0 +1,55 @@
+
+Output:
+
+Connecting to database
+Press 1. To view JAN 2015 sales
+Press 2. To view FEB 2015 sales
+1
+---------------Sales---------------
+Salesman_id:111
+Salesman_name:Samkit
+Sales_amount:1000.0
+Sales_Date:2015-01-01
+--------------------------------------
+Salesman_id:114
+Salesman_name:prachin
+Sales_amount:2230.0
+Sales_Date:2015-01-10
+--------------------------------------
+Salesman_id:115
+Salesman_name:suresh
+Sales_amount:4230.0
+Sales_Date:2015-01-20
+--------------------------------------
+Salesman_id:117
+Salesman_name:ram
+Sales_amount:10230.0
+Sales_Date:2015-01-06
+--------------------------------------
+
+Connecting to database
+Press 1. To view JAN 2015 sales
+Press 2. To view FEB 2015 sales
+2
+---------------Sales---------------
+Salesman_id:112
+Salesman_name:Chinmay
+Sales_amount:1200.0
+Sales_Date:2015-02-01
+--------------------------------------
+Salesman_id:113
+Salesman_name:Aishwarya
+Sales_amount:2200.0
+Sales_Date:2015-02-10
+--------------------------------------
+Salesman_id:116
+Salesman_name:ramesh
+Sales_amount:8230.0
+Sales_Date:2015-02-20
+--------------------------------------
+Salesman_id:118
+Salesman_name:rema
+Sales_amount:10230.0
+Sales_Date:2015-02-06
+--------------------------------------
+

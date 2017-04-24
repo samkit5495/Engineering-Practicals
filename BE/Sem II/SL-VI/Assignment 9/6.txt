@@ -1,0 +1,20 @@
+var params = {
+    TableName: 'customer',
+    Key: { // a map of attribute name to AttributeValue for all primary key attributes
+    
+        Cust_id: 102,
+        Cust_name:'Rakesh Kumar'
+        // more attributes...
+
+    },
+    AttributesToGet: [ // optional (list of specific attribute names to return)
+        'city',
+        // ... more attribute names ...
+    ],
+    // ConsistentRead: false, // optional (true | false)
+    // ReturnConsumedCapacity: 'NONE', // optional (NONE | TOTAL | INDEXES)
+};
+dynamodb.getItem(params, function(err, data) {
+    if (err) print(err); // an error occurred
+    else print(data); // successful response
+});

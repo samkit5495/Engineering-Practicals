@@ -1,0 +1,1234 @@
+samkit5495@samkit-laptop:~$ sudo su hduser
+[sudo] password for samkit5495: 
+
+hduser@samkit-laptop:/home/samkit5495$ start-all.sh
+This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh
+apt-get cleanStarting namenodes on [localhost]
+localhost: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hduser-namenode-samkit-laptop.out
+localhost: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-samkit-laptop.out
+Starting secondary namenodes [0.0.0.0]
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hduser-secondarynamenode-samkit-laptop.out
+17/03/14 20:14:33 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+starting yarn daemons
+starting resourcemanager, logging to /usr/local/hadoop/logs/yarn-hduser-resourcemanager-samkit-laptop.out
+localhost: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-samkit-laptop.out
+
+hduser@samkit-laptop:/home/samkit5495$ jps
+8256 Jps
+7808 ResourceManager
+7282 NameNode
+7627 SecondaryNameNode
+7932 NodeManager
+7406 DataNode
+
+hduser@samkit-laptop:/home/samkit5495$ hdfs dfs -mkdir /ass5
+
+hduser@samkit-laptop:/home/samkit5495$ hdfs dfs -copyFromLocal sample.txt /ass5
+
+hduser@samkit-laptop:/home/samkit5495$ hdfs dfs -ls /ass5
+Found 1 items
+-rw-r--r--   1 hduser supergroup       1040 2017-03-14 20:32 /ass5/sample.txt
+
+hduser@samkit-laptop:/home/samkit5495$ hdfs dfs -cat /ass5/sample.txt
+Apache Hadoop is an open-source software framework written in Java for distributed storage and distributed processing of very large data sets on computer clusters built from commodity hardware. All the modules in Hadoop are designed with a fundamental assumption that hardware failures are common and should be automatically handled by the framework.
+The core of Apache Hadoop consists of a storage part, known as Hadoop Distributed File System (HDFS), and a processing part called MapReduce. Hadoop splits files into large blocks and distributes them across nodes in a cluster. To process data, Hadoop transfers packaged code for nodes to process in parallel based on the data that needs to be processed. This approach takes advantage of data locality nodes manipulating the data they have access to allow the dataset to be processed faster and more efficiently than it would be in a more conventional supercomputer architecture that relies on a parallel file system where computation and data are distributed via high-speed networking.
+
+hduser@samkit-laptop:/home/samkit5495$ hadoop jar exp5a.jar exp5a.CharCount /ass5/sample.txt output
+17/03/14 20:36:42 INFO Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id
+17/03/14 20:36:42 INFO jvm.JvmMetrics: Initializing JVM Metrics with processName=JobTracker, sessionId=
+17/03/14 20:36:42 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+17/03/14 20:36:42 INFO input.FileInputFormat: Total input paths to process : 1
+17/03/14 20:36:43 INFO mapreduce.JobSubmitter: number of splits:1
+17/03/14 20:36:43 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_local702144243_0001
+17/03/14 20:36:44 INFO mapreduce.Job: The url to track the job: http://localhost:8080/
+17/03/14 20:36:44 INFO mapreduce.Job: Running job: job_local702144243_0001
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: OutputCommitter set in config null
+17/03/14 20:36:44 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: Waiting for map tasks
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: Starting task: attempt_local702144243_0001_m_000000_0
+17/03/14 20:36:44 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+17/03/14 20:36:44 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+17/03/14 20:36:44 INFO mapred.MapTask: Processing split: hdfs://localhost:54310/ass5/sample.txt:0+1040
+17/03/14 20:36:44 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+17/03/14 20:36:44 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100
+17/03/14 20:36:44 INFO mapred.MapTask: soft limit at 83886080
+17/03/14 20:36:44 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600
+17/03/14 20:36:44 INFO mapred.MapTask: kvstart = 26214396; length = 6553600
+17/03/14 20:36:44 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+A
+p
+a
+c
+h
+e
+ 
+H
+a
+d
+o
+o
+p
+ 
+i
+s
+ 
+a
+n
+ 
+o
+p
+e
+n
+-
+s
+o
+u
+r
+c
+e
+ 
+s
+o
+f
+t
+w
+a
+r
+e
+ 
+f
+r
+a
+m
+e
+w
+o
+r
+k
+ 
+w
+r
+i
+t
+t
+e
+n
+ 
+i
+n
+ 
+J
+a
+v
+a
+ 
+f
+o
+r
+ 
+d
+i
+s
+t
+r
+i
+b
+u
+t
+e
+d
+ 
+s
+t
+o
+r
+a
+g
+e
+ 
+a
+n
+d
+ 
+d
+i
+s
+t
+r
+i
+b
+u
+t
+e
+d
+ 
+p
+r
+o
+c
+e
+s
+s
+i
+n
+g
+ 
+o
+f
+ 
+v
+e
+r
+y
+ 
+l
+a
+r
+g
+e
+ 
+d
+a
+t
+a
+ 
+s
+e
+t
+s
+ 
+o
+n
+ 
+c
+o
+m
+p
+u
+t
+e
+r
+ 
+c
+l
+u
+s
+t
+e
+r
+s
+ 
+b
+u
+i
+l
+t
+ 
+f
+r
+o
+m
+ 
+c
+o
+m
+m
+o
+d
+i
+t
+y
+ 
+h
+a
+r
+d
+w
+a
+r
+e
+.
+ 
+A
+l
+l
+ 
+t
+h
+e
+ 
+m
+o
+d
+u
+l
+e
+s
+ 
+i
+n
+ 
+H
+a
+d
+o
+o
+p
+ 
+a
+r
+e
+ 
+d
+e
+s
+i
+g
+n
+e
+d
+ 
+w
+i
+t
+h
+ 
+a
+ 
+f
+u
+n
+d
+a
+m
+e
+n
+t
+a
+l
+ 
+a
+s
+s
+u
+m
+p
+t
+i
+o
+n
+ 
+t
+h
+a
+t
+ 
+h
+a
+r
+d
+w
+a
+r
+e
+ 
+f
+a
+i
+l
+u
+r
+e
+s
+ 
+a
+r
+e
+ 
+c
+o
+m
+m
+o
+n
+ 
+a
+n
+d
+ 
+s
+h
+o
+u
+l
+d
+ 
+b
+e
+ 
+a
+u
+t
+o
+m
+a
+t
+i
+c
+a
+l
+l
+y
+ 
+h
+a
+n
+d
+l
+e
+d
+ 
+b
+y
+ 
+t
+h
+e
+ 
+f
+r
+a
+m
+e
+w
+o
+r
+k
+.
+T
+h
+e
+ 
+c
+o
+r
+e
+ 
+o
+f
+ 
+A
+p
+a
+c
+h
+e
+ 
+H
+a
+d
+o
+o
+p
+ 
+c
+o
+n
+s
+i
+s
+t
+s
+ 
+o
+f
+ 
+a
+ 
+s
+t
+o
+r
+a
+g
+e
+ 
+p
+a
+r
+t
+,
+ 
+k
+n
+o
+w
+n
+ 
+a
+s
+ 
+H
+a
+d
+o
+o
+p
+ 
+D
+i
+s
+t
+r
+i
+b
+u
+t
+e
+d
+ 
+F
+i
+l
+e
+ 
+S
+y
+s
+t
+e
+m
+ 
+(
+H
+D
+F
+S
+)
+,
+ 
+a
+n
+d
+ 
+a
+ 
+p
+r
+o
+c
+e
+s
+s
+i
+n
+g
+ 
+p
+a
+r
+t
+ 
+c
+a
+l
+l
+e
+d
+ 
+M
+a
+p
+R
+e
+d
+u
+c
+e
+.
+ 
+H
+a
+d
+o
+o
+p
+ 
+s
+p
+l
+i
+t
+s
+ 
+f
+i
+l
+e
+s
+ 
+i
+n
+t
+o
+ 
+l
+a
+r
+g
+e
+ 
+b
+l
+o
+c
+k
+s
+ 
+a
+n
+d
+ 
+d
+i
+s
+t
+r
+i
+b
+u
+t
+e
+s
+ 
+t
+h
+e
+m
+ 
+a
+c
+r
+o
+s
+s
+ 
+n
+o
+d
+e
+s
+ 
+i
+n
+ 
+a
+ 
+c
+l
+u
+s
+t
+e
+r
+.
+ 
+T
+o
+ 
+p
+r
+o
+c
+e
+s
+s
+ 
+d
+a
+t
+a
+,
+ 
+H
+a
+d
+o
+o
+p
+ 
+t
+r
+a
+n
+s
+f
+e
+r
+s
+ 
+p
+a
+c
+k
+a
+g
+e
+d
+ 
+c
+o
+d
+e
+ 
+f
+o
+r
+ 
+n
+o
+d
+e
+s
+ 
+t
+o
+ 
+p
+r
+o
+c
+e
+s
+s
+ 
+i
+n
+ 
+p
+a
+r
+a
+l
+l
+e
+l
+ 
+b
+a
+s
+e
+d
+ 
+o
+n
+ 
+t
+h
+e
+ 
+d
+a
+t
+a
+ 
+t
+h
+a
+t
+ 
+n
+e
+e
+d
+s
+ 
+t
+o
+ 
+b
+e
+ 
+p
+r
+o
+c
+e
+s
+s
+e
+d
+.
+ 
+T
+h
+i
+s
+ 
+a
+p
+p
+r
+o
+a
+c
+h
+ 
+t
+a
+k
+e
+s
+ 
+a
+d
+v
+a
+n
+t
+a
+g
+e
+ 
+o
+f
+ 
+d
+a
+t
+a
+ 
+l
+o
+c
+a
+l
+i
+t
+y
+ 
+n
+o
+d
+e
+s
+ 
+m
+a
+n
+i
+p
+u
+l
+a
+t
+i
+n
+g
+ 
+t
+h
+e
+ 
+d
+a
+t
+a
+ 
+t
+h
+e
+y
+ 
+h
+a
+v
+e
+ 
+a
+c
+c
+e
+s
+s
+ 
+t
+o
+ 
+a
+l
+l
+o
+w
+ 
+t
+h
+e
+ 
+d
+a
+t
+a
+s
+e
+t
+ 
+t
+o
+ 
+b
+e
+ 
+p
+r
+o
+c
+e
+s
+s
+e
+d
+ 
+f
+a
+s
+t
+e
+r
+ 
+a
+n
+d
+ 
+m
+o
+r
+e
+ 
+e
+f
+f
+i
+c
+i
+e
+n
+t
+l
+y
+ 
+t
+h
+a
+n
+ 
+i
+t
+ 
+w
+o
+u
+l
+d
+ 
+b
+e
+ 
+i
+n
+ 
+a
+ 
+m
+o
+r
+e
+ 
+c
+o
+n
+v
+e
+n
+t
+i
+o
+n
+a
+l
+ 
+s
+u
+p
+e
+r
+c
+o
+m
+p
+u
+t
+e
+r
+ 
+a
+r
+c
+h
+i
+t
+e
+c
+t
+u
+r
+e
+ 
+t
+h
+a
+t
+ 
+r
+e
+l
+i
+e
+s
+ 
+o
+n
+ 
+a
+ 
+p
+a
+r
+a
+l
+l
+e
+l
+ 
+f
+i
+l
+e
+ 
+s
+y
+s
+t
+e
+m
+ 
+w
+h
+e
+r
+e
+ 
+c
+o
+m
+p
+u
+t
+a
+t
+i
+o
+n
+ 
+a
+n
+d
+ 
+d
+a
+t
+a
+ 
+a
+r
+e
+ 
+d
+i
+s
+t
+r
+i
+b
+u
+t
+e
+d
+ 
+v
+i
+a
+ 
+h
+i
+g
+h
+-
+s
+p
+e
+e
+d
+ 
+n
+e
+t
+w
+o
+r
+k
+i
+n
+g
+.
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: 
+17/03/14 20:36:44 INFO mapred.MapTask: Starting flush of map output
+17/03/14 20:36:44 INFO mapred.MapTask: Spilling map output
+17/03/14 20:36:44 INFO mapred.MapTask: bufstart = 0; bufend = 6216; bufvoid = 104857600
+17/03/14 20:36:44 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26210256(104841024); length = 4141/6553600
+17/03/14 20:36:44 INFO mapred.MapTask: Finished spill 0
+17/03/14 20:36:44 INFO mapred.Task: Task:attempt_local702144243_0001_m_000000_0 is done. And is in the process of committing
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: map
+17/03/14 20:36:44 INFO mapred.Task: Task 'attempt_local702144243_0001_m_000000_0' done.
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: Finishing task: attempt_local702144243_0001_m_000000_0
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: map task executor complete.
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: Waiting for reduce tasks
+17/03/14 20:36:44 INFO mapred.LocalJobRunner: Starting task: attempt_local702144243_0001_r_000000_0
+17/03/14 20:36:44 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+17/03/14 20:36:44 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+17/03/14 20:36:44 INFO mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@199bc23f
+17/03/14 20:36:44 INFO reduce.MergeManagerImpl: MergerManager: memoryLimit=334338464, maxSingleShuffleLimit=83584616, mergeThreshold=220663392, ioSortFactor=10, memToMemMergeOutputsThreshold=10
+17/03/14 20:36:44 INFO reduce.EventFetcher: attempt_local702144243_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events
+17/03/14 20:36:45 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local702144243_0001_m_000000_0 decomp: 8290 len: 8294 to MEMORY
+17/03/14 20:36:45 INFO reduce.InMemoryMapOutput: Read 8290 bytes from map-output for attempt_local702144243_0001_m_000000_0
+17/03/14 20:36:45 INFO reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 8290, inMemoryMapOutputs.size() -> 1, commitMemory -> 0, usedMemory ->8290
+17/03/14 20:36:45 INFO reduce.EventFetcher: EventFetcher is interrupted.. Returning
+17/03/14 20:36:45 INFO mapred.LocalJobRunner: 1 / 1 copied.
+17/03/14 20:36:45 INFO reduce.MergeManagerImpl: finalMerge called with 1 in-memory map-outputs and 0 on-disk map-outputs
+17/03/14 20:36:45 INFO mapred.Merger: Merging 1 sorted segments
+17/03/14 20:36:45 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 8286 bytes
+17/03/14 20:36:45 INFO mapreduce.Job: Job job_local702144243_0001 running in uber mode : false
+17/03/14 20:36:45 INFO mapreduce.Job:  map 100% reduce 0%
+17/03/14 20:36:45 INFO reduce.MergeManagerImpl: Merged 1 segments, 8290 bytes to disk to satisfy reduce memory limit
+17/03/14 20:36:45 INFO reduce.MergeManagerImpl: Merging 1 files, 8294 bytes from disk
+17/03/14 20:36:45 INFO reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce
+17/03/14 20:36:45 INFO mapred.Merger: Merging 1 sorted segments
+17/03/14 20:36:45 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 8286 bytes
+17/03/14 20:36:45 INFO mapred.LocalJobRunner: 1 / 1 copied.
+17/03/14 20:36:45 INFO Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+17/03/14 20:36:45 INFO mapred.Task: Task:attempt_local702144243_0001_r_000000_0 is done. And is in the process of committing
+17/03/14 20:36:45 INFO mapred.LocalJobRunner: 1 / 1 copied.
+17/03/14 20:36:45 INFO mapred.Task: Task attempt_local702144243_0001_r_000000_0 is allowed to commit now
+17/03/14 20:36:45 INFO output.FileOutputCommitter: Saved output of task 'attempt_local702144243_0001_r_000000_0' to hdfs://localhost:54310/user/hduser/output/_temporary/0/task_local702144243_0001_r_000000
+17/03/14 20:36:45 INFO mapred.LocalJobRunner: reduce > reduce
+17/03/14 20:36:45 INFO mapred.Task: Task 'attempt_local702144243_0001_r_000000_0' done.
+17/03/14 20:36:45 INFO mapred.LocalJobRunner: Finishing task: attempt_local702144243_0001_r_000000_0
+17/03/14 20:36:45 INFO mapred.LocalJobRunner: reduce task executor complete.
+17/03/14 20:36:46 INFO mapreduce.Job:  map 100% reduce 100%
+17/03/14 20:36:46 INFO mapreduce.Job: Job job_local702144243_0001 completed successfully
+17/03/14 20:36:46 INFO mapreduce.Job: Counters: 35
+	File System Counters
+		FILE: Number of bytes read=23556
+		FILE: Number of bytes written=595158
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=2080
+		HDFS: Number of bytes written=169
+		HDFS: Number of read operations=13
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=4
+	Map-Reduce Framework
+		Map input records=2
+		Map output records=1036
+		Map output bytes=6216
+		Map output materialized bytes=8294
+		Input split bytes=103
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=37
+		Reduce shuffle bytes=8294
+		Reduce input records=1036
+		Reduce output records=37
+		Spilled Records=2072
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=0
+		Total committed heap usage (bytes)=597688320
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=1040
+	File Output Format Counters 
+		Bytes Written=169
+
+hduser@samkit-laptop:/home/samkit5495$ hdfs dfs -cat /ass5/output/*
+
+ 	160
+(	1
+)	1
+,	3
+-	2
+.	6
+A	3
+D	2
+F	2
+H	7
+J	1
+M	1
+R	1
+S	2
+T	3
+a	94
+b	13
+c	33
+d	51
+e	95
+f	18
+g	12
+h	26
+i	46
+k	7
+l	36
+m	20
+n	45
+o	71
+p	31
+r	56
+s	63
+t	74
+u	23
+v	6
+w	12
+y	9
+
+hduser@samkit-laptop:/home/samkit5495$ stop-all.sh
+This script is Deprecated. Instead use stop-dfs.sh and stop-yarn.sh
+Stopping namenodes on [localhost]
+localhost: stopping namenode
+localhost: stopping datanode
+Stopping secondary namenodes [0.0.0.0]
+0.0.0.0: stopping secondarynamenode
+17/03/14 21:27:28 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+stopping yarn daemons
+stopping resourcemanager
+localhost: stopping nodemanager
+no proxyserver to stop
+

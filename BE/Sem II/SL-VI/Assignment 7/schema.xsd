@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- New XSD document created with EditiX XML Editor (http://www.editix.com) at Sun Apr 23 13:07:04 IST 2017 -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="BEIT">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="Student" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Student">
+<xs:complexType>
+<xs:sequence>
+	<xs:element ref="first_name" minOccurs="0" maxOccurs="1"></xs:element>
+	<xs:element ref="last_name" maxOccurs="1" minOccurs="0"></xs:element>
+	<xs:element ref="nick_name" minOccurs="0" maxOccurs="1"></xs:element>
+	<xs:element ref="marks" minOccurs="0" maxOccurs="1"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="first_name" type="xs:string"></xs:element>
+
+<xs:element name="last_name" type="xs:string"></xs:element>
+<xs:element name="nick_name" type="xs:string"></xs:element>
+<xs:element name="marks" type="xs:float"></xs:element>
+
+</xs:schema>

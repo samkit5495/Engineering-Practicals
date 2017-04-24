@@ -1,0 +1,18 @@
+
+Output:
+
+Install this before running any command:
+
+sudo apt-get install rpcbind
+
+Server Side:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ chmod +x compile.sh 
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./compile.sh 
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Server
+
+Client Side:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2/Lower to Upper Case$ ./Client 127.0.0.1 samkit
+Result: SAMKIT.
+

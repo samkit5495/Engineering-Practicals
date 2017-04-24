@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0031)http://unipune.ac.in/newsevent/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+
+    /***********************************************
+    * IFRAME Scroller script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+    * This notice MUST stay intact for legal use
+    * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+    ***********************************************/
+
+    //Specify speed of scroll. Larger=faster (ie: 5)
+    var scrollspeed = cache = 1
+
+    //Specify intial delay before scroller starts scrolling (in miliseconds):
+    var initialdelay = 500
+
+    function initializeScroller() {
+        dataobj = document.all ? document.all.datacontainer : document.getElementById("datacontainer")
+        dataobj.style.top = "5px"
+        setTimeout("getdataheight()", initialdelay)
+    }
+
+    function getdataheight() {
+        thelength = dataobj.offsetHeight
+        if (thelength == 0)
+            setTimeout("getdataheight()", 10)
+        else
+            scrollDiv()
+    }
+
+    function scrollDiv() {
+        dataobj.style.top = parseInt(dataobj.style.top) - scrollspeed + "px"
+        if (parseInt(dataobj.style.top) < thelength * (-1))
+            dataobj.style.top = "5px"
+        setTimeout("scrollDiv()", 40)
+    }
+
+    if (window.addEventListener)
+        window.addEventListener("load", initializeScroller, false)
+    else if (window.attachEvent)
+        window.attachEvent("onload", initializeScroller)
+    else
+        window.onload = initializeScroller
+
+</script>
+
+<style>.green {
+	COLOR: #cf2754; TEXT-DECORATION: none
+}
+.green {
+	COLOR: #cf2754; TEXT-DECORATION: none
+}
+.auto-style1 {
+	color: #F83232;
+}
+.auto-style2 {
+	text-align: left;
+}
+.auto-style3 {
+	font-family: Calibri;
+	font-size: 10pt;
+}
+.auto-style4 {
+	color: #800080;
+}
+</style>
+
+<meta content="Microsoft FrontPage 12.0" name="GENERATOR">
+<link rel="stylesheet" type="text/css" href="./hyper.css">
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginwidth="1" marginheight="1">
+<div id="datacontainer" onmouseover="scrollspeed=0" style="left: 11px; width: 212px; position: absolute; top: -295px;" onmouseout="scrollspeed=cache">
+	&nbsp;<table id="AutoNumber1" style="BORDER-COLLAPSE: collapse" height="1" cellspacing="2" cellpadding="3" width="213" border="0">
+  <tbody id="tbody"><tr><td align="justify" width="203" height="1"><p align="left"><span style="background-color: #FFFF00"><font face="Courier New" size="1">New</font></span><br><font align="justify" color="#008080" style="font-size: 9pt; font-weight: 700" face="verdana"><a style="text-decoration: none" target="_blank" href="http://sppudocs.unipune.ac.in/sites/news_events/dept_circulars/Lists/Arts%20and%20Fine%20Arts/Attachments/206/BJC%20Anniversary%20Concert22-2-17.pdf"><font color="#008080"><strong>Bhimsen Joshi Chair 20th Anniversary Concert</strong></font></a></font></p><hr color="#A6FFE9"></td></tr><tr><td align="justify" width="203" height="1"><p align="left"><span style="background-color: #FFFF00"><font face="Courier New" size="1">New</font></span><br><font align="justify" color="#008080" style="font-size: 9pt; font-weight: 700" face="verdana"><a style="text-decoration: none" target="_blank" href="http://sppudocs.unipune.ac.in/sites/news_events/Lists/News%20and%20Announcements/Attachments/593/115th%20Saturday%20meet-20-2-17.pdf"><font color="#008080"><strong>Buddha:The Super Scientist</strong></font></a></font></p><hr color="#A6FFE9"></td></tr><tr><td align="justify" width="203" height="1"><p align="left"><br><font align="justify" color="#008080" style="font-size: 9pt; font-weight: 700" face="verdana"><a style="text-decoration: none" target="_blank" href="http://sppudocs.unipune.ac.in/sites/news_events/Lists/News%20and%20Announcements/Attachments/577/Research%20Project%20Fellow.pdf"><font color="#008080"><strong>Application for the position of Research ‘Project Fellow’ Sponsored by UGC-DAE CSR, Mumbai.</strong></font></a></font></p><hr color="#A6FFE9"></td></tr><tr><td align="justify" width="203" height="1"><p align="left"><br><font align="justify" color="#008080" style="font-size: 9pt; font-weight: 700" face="verdana"><a style="text-decoration: none" target="_blank" href="http://sppudocs.unipune.ac.in/sites/circulars/Administrative%20Circulars%20%20Teaching/AN%20357_2-2-17.pdf"><font color="#008080"><strong>Circular Regarding for Marathi Bhasha Gaurav Din on 27th February, 2017</strong></font></a></font></p><hr color="#A6FFE9"></td></tr><tr><td align="justify" width="203" height="1"><p align="left"><br><font align="justify" color="#008080" style="font-size: 9pt; font-weight: 700" face="verdana"><a style="text-decoration: none" target="_blank" href="http://www.unipune.ac.in/dept/science/chemistry/default.htm"><font color="#008080"><strong>CHEMIAD 2017 Competition</strong></font></a></font></p><hr color="#A6FFE9"></td></tr></tbody></table></div>
+</body></html>

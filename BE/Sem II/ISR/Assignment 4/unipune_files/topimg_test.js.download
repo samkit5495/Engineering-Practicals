@@ -1,0 +1,141 @@
+//Fade-in image slideshow- By Dynamic Drive
+//For full source code and more DHTML scripts, visit http://www.dynamicdrive.com
+//This credit MUST stay intact for use
+
+var slideshow_width='1003px' //SET IMAGE WIDTH
+var slideshow_height='179px' //SET IMAGE HEIGHT
+var pause=5000 //SET PAUSE BETWEEN SLIDE (3000=3 seconds)
+
+
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+
+/*fadeimages[0]="uop_files/Bannerimage/sample.png"*/
+
+fadeimages[0]="uop_files/Bannerimage/unibanner6.jpg"
+fadeimages[1]="uop_files/Bannerimage/sample_1234.jpg"
+
+
+fadeimages[2]="uop_files/Bannerimage/sample_1236.jpg"
+
+fadeimages[3]="uop_files/Bannerimage/sample_1237.jpg"
+
+
+
+fadeimages[4]="uop_files/Bannerimage/unibanner10.jpg"
+/*fadeimages[2]="uop_files/Bannerimage/unibanner2.png" 
+fadeimages[3]="uop_files/Bannerimage/unibanner11.png
+fadeimages[7]="uop_files/Bannerimage/unibanner13.png""
+fadeimages[4]="uop_files/Bannerimage/sample_1239.png"*/
+fadeimages[5]="uop_files/Bannerimage/unibanner8.jpg"
+fadeimages[6]="uop_files/Bannerimage/unibanner7.jpg"
+
+fadeimages[7]="uop_files/Bannerimage/unibanner12123.jpg"
+fadeimages[8]="uop_files/Bannerimage/unibanner3.jpg"
+fadeimages[9]="uop_files/Bannerimage/unibanner12126.jpg"
+fadeimages[10]="uop_files/Bannerimage/unibanner12125.jpg"
+fadeimages[11]="uop_files/Bannerimage/unibanner12.jpg"
+fadeimages[12]="uop_files/Bannerimage/unibanner121268.jpg"
+/*fadeimages[14]="uop_files/Bannerimage/sample_1238.png"
+
+fadeimages[3]="uop_files/Bannerimage/sample_1235.png"
+
+
+fadeimages[4]="uop_files/Bannerimage/unibanner1.png"
+
+fadeimages[2]="uop_files/Bannerimage/unibanner121229.png"
+fadeimages[3]="uop_files/Bannerimage/unibanner12125.png"
+fadeimages[4]="uop_files/Bannerimage/unibanner12126.png"
+fadeimages[5]="uop_files/Bannerimage/unibanner121227.png"
+fadeimages[6]="uop_files/Bannerimage/unibanner12128.png"
+fadeimages[7]="uop_files/Bannerimage/unibanner12129.png"
+fadeimages[8]="uop_files/Bannerimage/unibanner5.png"
+fadeimages[14]="uop_files/Bannerimage/unibanner4.png"
+fadeimages[15]="uop_files/Bannerimage/unibanner9.png"
+*/
+
+
+/*fadeimages[4]="uop_files/unibanner_middle_new2.jpg"  
+fadeimages[5]="uop_files/unibanner_middle_new.jpg"  
+fadeimages[6]="uop_files/unibanner_middle_new1.jpg"
+fadeimages[7]="uop_files/unibanner_middle11.jpg"
+fadeimages[8]="uop_files/unibanner_middle_jan.jpg"
+fadeimages[9]="uop_files/unibanner_middle_jan1.jpg"*/
+
+
+////NO need to edit beyond here/////////////
+
+var preloadedimages=new Array()
+for (p=0;p<fadeimages.length;p++){
+preloadedimages[p]=new Image()
+preloadedimages[p].src=fadeimages[p]
+}
+
+var ie4=document.all
+var dom=document.getElementById
+
+if (ie4||dom)
+document.write('<div style="position:relative;width:'+slideshow_width+';height:'+slideshow_height+';overflow:hidden"><div  id="canvas0" style="position:absolute;width:'+slideshow_width+';height:'+slideshow_height+';top:0;left:0;filter:alpha(opacity=10);-moz-opacity:10"></div><div id="canvas1" style="position:absolute;width:'+slideshow_width+';height:'+slideshow_height+';top:0;left:0;filter:alpha(opacity=10);-moz-opacity:10"></div></div>')
+else
+document.write('<img name="defaultslide" src="'+fadeimages[0]+'">')
+
+var curpos=10
+var degree=10
+var curcanvas="canvas0"
+var curimageindex=0
+var nextimageindex=1
+
+
+function fadepic(){
+if (curpos<100){
+curpos+=10
+if (tempobj.filters)
+tempobj.filters.alpha.opacity=curpos
+else if (tempobj.style.MozOpacity)
+tempobj.style.MozOpacity=curpos/100
+}
+else{
+clearInterval(dropslide)
+nextcanvas=(curcanvas=="canvas0")? "canvas0" : "canvas1"
+tempobj=ie4? eval("document.all."+nextcanvas) : document.getElementById(nextcanvas)
+tempobj.innerHTML='<img src="'+fadeimages[nextimageindex]+'">'
+nextimageindex=(nextimageindex<fadeimages.length-1)? nextimageindex+1 : 0
+setTimeout("rotateimage()",pause)
+}
+}
+
+function rotateimage(){
+if (ie4||dom){
+resetit(curcanvas)
+var crossobj=tempobj=ie4? eval("document.all."+curcanvas) : document.getElementById(curcanvas)
+crossobj.style.zIndex++
+var temp='setInterval("fadepic()",50)'
+dropslide=eval(temp)
+curcanvas=(curcanvas=="canvas0")? "canvas1" : "canvas0"
+}
+else
+document.images.defaultslide.src=fadeimages[curimageindex]
+curimageindex=(curimageindex<fadeimages.length-1)? curimageindex+1 : 0
+}
+
+function resetit(what){
+curpos=10
+var crossobj=ie4? eval("document.all."+what) : document.getElementById(what)
+if (crossobj.filters)
+crossobj.filters.alpha.opacity=curpos
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=curpos/100
+}
+
+function startit(){
+var crossobj=ie4? eval("document.all."+curcanvas) : document.getElementById(curcanvas)
+crossobj.innerHTML='<img src="'+fadeimages[curimageindex]+'">'
+rotateimage()
+}
+
+if (ie4||dom)
+window.onload=startit
+else
+setInterval("rotateimage()",pause)
+
+                                       

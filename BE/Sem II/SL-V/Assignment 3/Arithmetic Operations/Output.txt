@@ -1,0 +1,28 @@
+
+Output:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 3/Arithmetic Operations$ javac *.java
+
+Microsoft Windows (use javaw if start is not available):
+
+start rmiregistry
+
+Solaris OS or Linux:
+
+rmiregistry &
+
+Server:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 3/Arithmetic Operations$ rmiregistry &
+[1] 6775
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 3/Arithmetic Operations$ java SS
+
+
+Client:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 3/Arithmetic Operations$ java SC 127.0.0.1 5 7
+The first number is:5
+The second number is:7
+The sum is:12
+

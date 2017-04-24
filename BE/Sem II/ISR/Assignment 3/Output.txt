@@ -1,0 +1,54 @@
+
+Output:
+
+D:\College>gcc INV.C
+
+D:\College>a
+hi my name is samkit jain. samkit jain i am from pune. i have done BE
+
+
+hi              1               1
+
+
+
+name            1               7
+
+
+
+samkit          2               15 28
+
+
+
+jain.           1               22
+
+
+
+jain            1               35
+
+
+
+i               2               40 56
+
+
+
+am              1               42
+
+
+
+from            1               45
+
+
+
+pune.           1               50
+
+
+
+have            1               58
+
+
+
+done            1               63
+
+
+
+BE              1               68

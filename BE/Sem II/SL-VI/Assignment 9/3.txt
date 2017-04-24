@@ -1,0 +1,7 @@
+var params = {
+    TableName: 'customer',
+};
+dynamodb.scan(params, function(err, data) {
+    if (err) print(err); // an error occurred
+    else print(data); // successful response
+});

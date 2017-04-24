@@ -1,0 +1,185 @@
+Connected to Test Cluster at 127.0.0.1:9042.
+[cqlsh 5.0.1 | Cassandra 2.2.4 | CQL spec 3.3.1 | Native protocol v4]
+Use HELP for help.
+WARNING: pyreadline dependency missing.  Install to enable tab completion.
+cqlsh> CREATE KEYSPACE sam WITH replication = {
+   ... 'class':'SimpleStrategy',
+   ... 'replication_factor':'1'
+   ... };
+cqlsh> use sam;
+cqlsh:sam> CREATE TABLE info (
+       ... id int,
+       ... address text,
+       ... name text,
+       ... PRIMARY KEY((id))
+       ... );
+cqlsh:sam> show tables;
+Improper show command.
+cqlsh:sam> describe tables;
+
+info
+
+cqlsh:sam> describe info;
+
+CREATE TABLE sam.info (
+    id int PRIMARY KEY,
+    address text,
+    name text
+) WITH bloom_filter_fp_chance = 0.01
+    AND caching = '{"keys":"ALL", "rows_per_partition":"NONE"}'
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'}
+    AND compression = {'sstable_compression': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND dclocal_read_repair_chance = 0.1
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair_chance = 0.0
+    AND speculative_retry = '99.0PERCENTILE';
+
+cqlsh:sam> select * from info;
+
+ id | address | name
+----+---------+------
+
+(0 rows)
+cqlsh:sam> insert into info values (1,'pune','samkit');
+SyntaxException: <ErrorMessage code=2000 [Syntax error in CQL query] message="line 1:17 no viable alternative at input 'values' (insert into [info] values...)">
+cqlsh:sam> insert into info (id,address,name) values (1,'pune','samkit');
+cqlsh:sam> select * from info;
+
+ id | address | name
+----+---------+--------
+  1 |    pune | samkit
+
+(1 rows)
+cqlsh:sam> update info set address='india' where id=1
+       ... ;
+cqlsh:sam> select * from info;
+
+ id | address | name
+----+---------+--------
+  1 |   india | samkit
+
+(1 rows)
+cqlsh:sam> Create TABLE info (
+       ... id int,
+       ... address text,
+       ... name text,
+       ... PRIMARY KEY((id))
+       ... );
+AlreadyExists: Table 'sam.info' already exists
+cqlsh:sam> insert into info (id,address,name) values (2,'pune','samkit');
+cqlsh:sam> select * from info;
+
+ id | address | name
+----+---------+--------
+  1 |   india | samkit
+  2 |    pune | samkit
+
+(2 rows)
+cqlsh:sam> insert into info (id,address,name) values (1,'pune','samkit');
+cqlsh:sam> select * from info;
+
+ id | address | name
+----+---------+--------
+  1 |    pune | samkit
+  2 |    pune | samkit
+
+(2 rows)
+cqlsh:sam> insert into info (id,address,name) values (5,'pune','samkit');
+cqlsh:sam> insert into info (id,address,name) values (4,'pune','samkit');
+cqlsh:sam> select * from info;
+
+ id | address | name
+----+---------+--------
+  5 |    pune | samkit
+  1 |    pune | samkit
+  2 |    pune | samkit
+  4 |    pune | samkit
+
+(4 rows)
+cqlsh:sam> select * from info sortby asc;
+SyntaxException: <ErrorMessage code=2000 [Syntax error in CQL query] message="line 1:19 no viable alternative at input 'sortby' (select * from [info] sortby...)">
+cqlsh:sam> select * from info where id sortby asc;
+SyntaxException: <ErrorMessage code=2000 [Syntax error in CQL query] message="line 1:28 no viable alternative at input 'sortby' (select * from info where [id] sortby...)">
+cqlsh:sam> select * from info where id sort by asc;
+SyntaxException: <ErrorMessage code=2000 [Syntax error in CQL query] message="line 1:28 no viable alternative at input 'sort' (select * from info where [id] sort...)">
+cqlsh:sam> select * from info where id order by asc;
+SyntaxException: <ErrorMessage code=2000 [Syntax error in CQL query] message="line 1:28 no viable alternative at input 'order' (select * from info where [id] order...)">
+cqlsh:sam> select * from info where order by id asc;
+SyntaxException: <ErrorMessage code=2000 [Syntax error in CQL query] message="line 1:25 no viable alternative at input 'order' (select * from info where [order]...)">
+cqlsh:sam> select * from info order by id asc;
+InvalidRequest: code=2200 [Invalid query] message="ORDER BY is only supported when the partition key is restricted by an EQ or an IN."
+cqlsh:sam> select * from info where id in (1,10) order by id asc;
+InvalidRequest: code=2200 [Invalid query] message="Order by is currently only supported on the clustered columns of the PRIMARY KEY, got id"
+cqlsh:sam> select * from info where id in (1,10) order by id ;
+InvalidRequest: code=2200 [Invalid query] message="Order by is currently only supported on the clustered columns of the PRIMARY KEY, got id"
+cqlsh:sam> select * from info order by id ;
+InvalidRequest: code=2200 [Invalid query] message="ORDER BY is only supported when the partition key is restricted by an EQ or an IN."
+cqlsh:sam> Create TABLE info (
+       ... id int,
+       ... address text,
+       ... name text,
+       ... PRIMARY KEY(id,name)
+       ... );
+AlreadyExists: Table 'sam.info' already exists
+cqlsh:sam> Create TABLE xyz (
+       ... id int,
+       ... address text,
+       ... name text,
+       ... PRIMARY KEY(id,name)
+       ... );
+cqlsh:sam> describe xyz
+
+CREATE TABLE sam.xyz (
+    id int,
+    name text,
+    address text,
+    PRIMARY KEY (id, name)
+) WITH CLUSTERING ORDER BY (name ASC)
+    AND bloom_filter_fp_chance = 0.01
+    AND caching = '{"keys":"ALL", "rows_per_partition":"NONE"}'
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'}
+    AND compression = {'sstable_compression': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND dclocal_read_repair_chance = 0.1
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair_chance = 0.0
+    AND speculative_retry = '99.0PERCENTILE';
+
+cqlsh:sam> describe info
+
+CREATE TABLE sam.info (
+    id int PRIMARY KEY,
+    address text,
+    name text
+) WITH bloom_filter_fp_chance = 0.01
+    AND caching = '{"keys":"ALL", "rows_per_partition":"NONE"}'
+    AND comment = ''
+    AND compaction = {'class': 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'}
+    AND compression = {'sstable_compression': 'org.apache.cassandra.io.compress.LZ4Compressor'}
+    AND dclocal_read_repair_chance = 0.1
+    AND default_time_to_live = 0
+    AND gc_grace_seconds = 864000
+    AND max_index_interval = 2048
+    AND memtable_flush_period_in_ms = 0
+    AND min_index_interval = 128
+    AND read_repair_chance = 0.0
+    AND speculative_retry = '99.0PERCENTILE';
+
+cqlsh:sam> select * from info where id in (1,10) order by name asc;
+InvalidRequest: code=2200 [Invalid query] message="Order by is currently only supported on the clustered columns of the PRIMARY KEY, got name"
+cqlsh:sam> select * from info where id in (1,5) order by name asc;
+InvalidRequest: code=2200 [Invalid query] message="Order by is currently only supported on the clustered columns of the PRIMARY KEY, got name"
+cqlsh:sam> select * from info where id in (1,4) order by name asc;
+InvalidRequest: code=2200 [Invalid query] message="Order by is currently only supported on the clustered columns of the PRIMARY KEY, got name"
+cqlsh:sam> select * from info where id in (1,2) order by name asc;
+InvalidRequest: code=2200 [Invalid query] message="Order by is currently only supported on the clustered columns of the PRIMARY KEY, got name"
+cqlsh:sam>

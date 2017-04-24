@@ -1,0 +1,48 @@
+
+
+Q
+
+<db>
+<emp>
+  <ename>Samkit</ename>
+  <children>
+    <name>Samkit</name>
+    <birthday>
+      <month>
+        March
+      </month>
+    </birthday>
+  </children>
+  <skills>
+    <type>
+      typing
+    </type>
+    <exams>
+      <year>
+      </year>
+      <city>
+        Dayton
+      </city>
+    </exams>
+  </skills>
+</emp>
+</db>
+
+Q 2 b 1
+
+for $x in /db/emp/children
+where $x/birthday/month="March"
+return $x/name
+
+Q 2 b 2
+
+for $x in /db/emp
+where $x/skills/type="typing"
+for $y in $x/skills/exams/city
+where $y="Dayton"
+return $x/ename
+
+Q 2 b 3
+
+for $x in /db/emp/skills/type
+return $x

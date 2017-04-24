@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- New XSD document created with EditiX XML Editor (http://www.editix.com) at Mon Jan 09 11:35:24 IST 2017 -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+<xs:element name="BEIT">
+
+<xs:complexType>
+
+<xs:sequence>
+
+<xs:element ref="Student" minOccurs="0" maxOccurs="unbounded"></xs:element>
+
+</xs:sequence>
+
+</xs:complexType>
+
+</xs:element>
+
+<xs:element name="Student">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="Name"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element ref="PhoneNo"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element ref="Aggregate"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element ref="Attendance"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element ref="College"  minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="Name" type="xs:string"></xs:element>
+<xs:element name="PhoneNo" type="xs:long"></xs:element>
+<xs:element name="Aggregate" type="xs:float"></xs:element>
+<xs:element name="Attendance" type="xs:float"></xs:element>
+<xs:element name="College" type="xs:string"></xs:element>
+
+</xs:schema>

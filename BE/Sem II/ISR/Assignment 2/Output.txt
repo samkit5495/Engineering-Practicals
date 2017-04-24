@@ -1,0 +1,23 @@
+Output:
+D:\College\single_pass>gcc SINGLE.C
+
+D:\College\single_pass>a.exe
+
+Enter name of conflation file1:one.TXT
+
+Enter name of conflation file2:two.TXT
+
+Enter name of conflation file3:three.TXT
+
+Enter name of conflation file4:four.TXT
+
+Similarity matrix:
+        file1           file2           file3           file4
+file1   1.000000        0.285714        0.181818        0.526316
+file2   0.190476        1.000000        0.000000        0.200000
+file3   0.181818        0.000000        1.000000        0.095238
+file4   0.571429        0.200000        0.095238        1.000000
+Enter the Threshold value(0-1):0.5
+ file1  file4   in Cluster1
+ file2  in Cluster2
+ file3  in Cluster3

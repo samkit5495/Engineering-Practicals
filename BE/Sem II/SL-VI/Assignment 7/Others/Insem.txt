@@ -1,0 +1,30 @@
+Insem 
+
+Q 3 a 1
+
+for $x in /bib/book
+return
+<result>
+<title>{data($x/title)}</title>
+<price>{data($x/price)}</price>
+</result>
+
+Q 3 a 2
+
+count(/bib/book)
+
+Q 3 a 3
+
+for $x in /bib/book
+where $x/price > avg(/bib/book/price)
+return $x/title
+
+Q 3 a 4 
+
+( and number($x/@year/string())>1991) not working
+
+for $x in /bib/book
+where $x/publisher = "Addison-Wesley"
+ and number($x/@year/string())>1991
+order by $x/@year ascending
+return $x/title

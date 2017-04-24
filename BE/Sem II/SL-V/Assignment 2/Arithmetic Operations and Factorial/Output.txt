@@ -1,0 +1,40 @@
+
+Output:
+
+Install this before running any command:
+
+sudo apt-get install rpcbind
+
+Server Side:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ chmod +x compile.sh 
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./compile.sh 
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Server
+
+Client Side:
+
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Client 
+
+ Usage: ./Client <host> <option> <num_1> <num_2> 
+Option: 1-Add, 2-Sub, 3-Mul, 4-Div, 5.Factorial
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Client 127.0.0.1 1 7 5
+
+Result of Addition = 12
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Client 127.0.0.1 2 7 5
+
+Result of Subtraction = 2
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Client 127.0.0.1 3 7 5
+
+Result of Multiplication = 35
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Client 127.0.0.1 4 7 5
+
+Result of Division = 1.40
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Client 127.0.0.1 5 7
+
+Result of Factorial = 5040.00
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ ./Client 127.0.0.1 5 7 5
+
+ Usage: ./Client <host> <option> <factorial> 
+Option: 1-Add, 2-Sub, 3-Mul, 4-Div, 5.Factorial
+samkit5495@samkit-laptop:~/Dropbox/Documents/College Programs/SL-V/Assignment 2$ 
+

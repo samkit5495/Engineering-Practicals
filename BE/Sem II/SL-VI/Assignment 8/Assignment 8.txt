@@ -1,0 +1,325 @@
+
+
+1.List all the employee details.
+2. List all the department details.
+3. List all job details.
+4. List all the locations.
+
+KEYSPACE CREATION:
+
+
+CREATE KEYSPACE company WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+
+
+cqlsh> use company;
+
+TABLE CREATION:
+
+cqlsh:company> CREATE TABLE location(loc_id int ,regional_group text,
+           ... PRIMARY KEY (LOC_ID));
+
+
+cqlsh:company> CREATE TABLE department(dept_id int ,name text,
+           ... PRIMARY KEY (dept_id));
+
+
+cqlsh:company> CREATE TABLE job(job_id int ,function text,
+           ... PRIMARY KEY (job_id));
+
+
+cqlsh:company> CREATE TABLE employee(emp_id int ,firstname text,
+           ... lastname text,
+           ... manager_id int, hiredate date, salary float, primary key(emp_id));
+
+
+
+cqlsh:company> insert into location (loc_id,regional_group) values(122,'New York');
+cqlsh:company> insert into location (loc_id,regional_group) values(123,'Dallas');
+cqlsh:company> insert into location (loc_id,regional_group) values(124,'Chicago');
+cqlsh:company> insert into location (loc_id,regional_group) values(167,'Boston');
+cqlsh:company> select * from location;
+
+ loc_id | regional_group
+--------+---------------
+    123 |         Dallas
+    122 |       New York
+    167 |         Boston
+    124 |        Chicago
+
+(4 rows)
+
+cqlsh:company> insert into department (dept_id, name) values
+           ... (20,'Research');
+cqlsh:company> insert into department (dept_id, name) values
+           ... (30,'Sale');
+cqlsh:company> insert into department (dept_id, name) values
+           ... (40,'Operation');
+cqlsh:company> select * from department;
+
+ dept_id | name
+---------+-----------
+      10 | Accounting
+      30 |       Sale
+      20 |   Research
+      40 |  Operation
+
+(4 rows)
+cqlsh:company> insert into job (job_id, function) values
+           ... (667,'Clerk');
+cqlsh:company> insert into job (job_id, function) values
+           ... (668,'Staff');
+cqlsh:company> insert into job (job_id, function) values
+           ... (669,'Analyst');
+cqlsh:company> insert into job (job_id, function) values
+           ... (670,'Salesperson');
+cqlsh:company> insert into job (job_id, function) values
+           ... (671,'Manager');
+cqlsh:company> insert into job (job_id, function) values
+           ... (672,'President');
+cqlsh:company> select * from job;
+
+ job_id | function
+--------+------------
+    670 | Salesperson
+    671 |     Manager
+    667 |       Clerk
+    669 |     Analyst
+    668 |       Staff
+    672 |   President
+
+(6 rows)
+
+cqlsh:company> ALTER TABLE employee ADD job_id int;
+cqlsh:company> ALTER TABLE employee ADD dept_id int;
+
+cqlsh:company> insert into employee (emp_id,firstname,lastname,manager_id,hireda
+te,salary,job_id,dept_id) values
+           ... (7369,'jon','smith',7902,'2004-12-17',800,667,20);
+cqlsh:company> insert into employee (emp_id,firstname,lastname,manager_id,hireda
+te,salary,job_id,dept_id) values
+           ... (7499,'kevin','allen',7698,'2005-02-20',1600,668,10);
+cqlsh:company> insert into employee (emp_id,firstname,lastname,manager_id,hireda
+te,salary,job_id,dept_id) values
+           ... (7505,'jean','doyle',7839,'1985-04-04',2850,669,20);
+cqlsh:company> insert into employee (emp_id,firstname,lastname,manager_id,hireda
+te,salary,job_id,dept_id) values
+           ... (7506,'smith','dennis',7839,'1985-05-15',2750,671,40);
+cqlsh:company> insert into employee (emp_id,firstname,lastname,manager_id,hireda
+te,salary,job_id,dept_id) values
+           ... (7507,'leslie','baker',7839,'1985-06-10',2200,670,30);
+cqlsh:company> insert into employee (emp_id,firstname,lastname,manager_id,hireda
+te,salary,job_id,dept_id) values
+           ... (7521,'cynthia','wark',7698,'1985-02-22',1250,672,40);
+cqlsh:company> select * from employee;
+
+ emp_id | dept_id | firstname | hiredate   | job_id | lastname | manager_id | salary
+--------+--------+----------+-----------+-------+---------+-----------+-------
+   7506 |      40 |      smith | 1985-05-15 |    671 |   dennis |       7839 |2750
+   7499 |      10 |     kevin | 2005-02-20 |    668 |    allen |       7698 |1600
+   7521 |      40 |   cynthia | 1985-02-22 |    672 |     wark |       7698 |1250
+   7507 |      30 |    leslie | 1985-06-10 |    670 |    baker |       7839 |2200
+   7369 |      20 |       jon | 2004-12-17 |    667 |    smith |       7902 |800
+   7505 |      20 |      jean | 1985-04-04 |    669 |    doyle |       7839 |2850
+
+(6 rows)
+cqlsh:company>
+
+5. List out first name , last name , salary , for all employees.
+
+
+cqlsh:company> select firstname,lastname,salary from employee;
+
+ firstname | lastname | salary
+-----------+---------+-------
+      smith |   dennis |   2750
+     kevin |    allen |   1600
+   cynthia |     wark |   1250
+    leslie |    baker |   2200
+       jon |    smith |    800
+      jean |    doyle |   2850
+
+(6 rows)
+
+
+
+ 6. Update the regional group of location id 122 as India.
+
+
+cqlsh:company> update location set regional_group='India' where loc_id=122;
+cqlsh:company> select * from location;
+
+ loc_id | regional_group
+--------+---------------
+    123 |         Dallas
+    122 |          India
+    167 |         Boston
+    124 |        Chicago
+
+(4 rows)
+
+7. Update the salary of employee id 7507 with 4000.
+
+
+cqlsh:company> update employee set salary=4000 where emp_id=7507;
+cqlsh:company> select * from employee;
+
+ emp_id | dept_id | firstname | hiredate   | job_id | lastname | manager_id | salary
+--------+--------+----------+-----------+-------+---------+-----------+-------
+   7506 |      40 |      smith | 1985-05-15 |    671 |   dennis |       7839 |	2750
+   7499 |      10 |     kevin | 2005-02-20 |    668 |    allen |       7698 |	1600
+   7521 |      40 |   cynthia | 1985-02-22 |    672 |     wark |       7698 | 	1250
+   7507 |      30 |    leslie | 1985-06-10 |    670 |    baker |       7839 |	4000
+   7369 |      20 |       jon | 2004-12-17 |    667 |    smith |       7902 |	 800
+   7505 |      20 |      jean | 1985-04-04 |    669 |    doyle |       7839 |	2850
+
+(6 rows)
+
+
+
+8. Remove the record of job id 667.
+
+cqlsh:company> create index j_id on employee(job_id);
+cqlsh:company> select * from employee where job_id = 667;
+
+ emp_id | dept_id | firstname | hiredate   | job_id | lastname | manager_id | salary
+--------+--------+----------+-----------+-------+---------+-----------+-------
+   7369 |      20 |       jon | 2004-12-17 |    667 |    smith |       7902 | 800
+
+(1 rows)
+cqlsh:company> delete from employee where emp_id = 7369;
+cqlsh:company> select * from employee;
+
+ emp_id | dept_id | firstname | hiredate   | job_id | lastname | manager_id | salary
+--------+--------+----------+-----------+-------+---------+-----------+-------
+   7506 |      40 |      smith | 1985-05-15 |    671 |   dennis |       7839 |2750
+   7499 |      10 |     kevin | 2005-02-20 |    668 |    allen |       7698 |1600
+   7521 |      40 |   cynthia | 1985-02-22 |    672 |     wark |       7698 |1250
+   7507 |      30 |    leslie | 1985-06-10 |    670 |    baker |       7839 |4000
+   7505 |      20 |      jean | 1985-04-04 |    669 |    doyle |       7839 |2850
+
+(5 rows)
+
+
+
+cqlsh:company> delete from job where job_id = 7369;
+cqlsh:company> select * from job;
+
+ job_id | function
+--------+------------
+    670 | Salesperson
+    671 |     Manager
+    667 |       Clerk
+    669 |     Analyst
+    668 |       Staff
+    672 |   President
+
+(6 rows)
+
+
+
+
+cqlsh:company> create index on employee(firstname);
+
+
+
+9. List the details about “smith”
+
+cqlsh:company> select * from employee where firstname='smith';
+
+ emp_id | dept_id | firstname | hiredate   | job_id | lastname | manager_id | salary
+--------+--------+----------+-----------+-------+---------+-----------+-------
+   7506 |      40 |      smith | 1985-05-15 |    671 |   dennis |       7839 |2750
+
+(1 rows)
+
+10.List out the function whose job id is 671.
+
+
+cqlsh:company> select function from job where job_id=671;
+ function
+----------
+  Manager
+
+(1 rows)
+
+12.Count the total number of employees in employee table.
+
+
+cqlsh:company> select count(*) as No_of_employees from employee;
+
+ no_of_employees
+-----------------
+               5
+
+(1 rows)
+
+
+
+cqlsh:company> create index on employee(lastname);
+cqlsh:company> create index on employee(salary);
+
+13.Give the details of employee whose eid 7505 and salary 2850 and last name Dolye.
+
+
+cqlsh:company> select * from employee where emp_id=7505
+           ... AND salary=2850 AND lastname='doyle' ALLOW FILTERING;
+
+ emp_id | dept_id | firstname | hiredate   | job_id | lastname | manager_id | salary
+--------+--------+----------+-----------+-------+---------+-----------+-------
+   7505 |      20 |      jean | 1985-04-04 |    669 |    doyle |       7839 |2850
+
+(1 rows)
+
+14.List out the employees whose employee id is 7506 and salary 2750.
+
+
+cqlsh:company> select * from employee where emp_id=7506
+           ... AND salary=2750 ALLOW FILTERING;
+
+ emp_id | dept_id | firstname | hiredate   | job_id | lastname | manager_id | salary
+--------+--------+----------+-----------+-------+---------+-----------+-------
+   7506 |      40 |      smith | 1985-05-15 |    671 |   dennis |       7839 |2750
+
+(1 rows)
+
+16.Add column HRA in employee table and update it.
+	Do It
+
+17.Find the sum of salary for all employee and give the name to coloum as Sum_of_salary.
+
+
+cqlsh:myspace> select avg(salary) as Sum_of_Salary from employee;
+Sum_of_Salary
+-------------
+	12450
+(1 rows)
+
+
+18.Find the avg of salary for all employee and give the name to coloum as Sum_of_salary.
+
+cqlsh:myspace> select avg(salary) as Avg_of_Salary from employee;
+Avg_of_Salary
+-------------
+	2490
+(1 rows)
+
+
+19.Find the smallest department id.
+
+
+cqlsh:myspace> select min(Dept_id) as minimum from Dept;
+minimum
+-------------
+	7499
+(1 rows)
+
+
+20.Find minimum salary of employee.
+
+cqlsh:company>select min(salary) from employee;
+
+min(salary)
+-----------
+1250
+
+(1 rows)

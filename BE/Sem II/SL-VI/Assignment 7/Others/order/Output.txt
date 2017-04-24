@@ -1,0 +1,199 @@
+Create XML, XML schemas , DTD for any database application and implement min 10 queries using XQuery FLOWR expression and XPath 
+
+Queries:-
+1.	 Write a query using XQuery FLOWR to retrieve data :Display the name of the customers
+Answer: 
+
+Query:
+
+xquery version "1.0";
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+return $x/custname
+
+Output:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Samkit</custname>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Aish</custname>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Prachin</custname>
+
+2.	Write a query using XQuery FLOWR to implement ORDER BY clause: Retrieve name with orderby clause
+Answer: 
+
+Query:
+
+xquery version "1.0";
+
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+order by $x/custname
+return $x/custname
+
+Output:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Aish</custname>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Prachin</custname>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Samkit</custname>
+
+3.	Write a query using XQuery FLOWR to implement ORDER BY clause with where condition: Display the name (Order by) of the orders whose amount are greater than 20000 
+Answer: 
+
+Query:
+
+xquery version "1.0";
+
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+where $x/amount > 20000
+order by $x/custname
+return $x/custname
+
+Output:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Aish</custname>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Prachin</custname>
+
+4.	Write a query using XQuery FLOWR to implement ORDER BY ASCENDING:Display the name (Order by ascending ) of the orders whose amount are greater than 20000
+
+Answer: 
+
+Query:
+xquery version "1.0";
+
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+where $x/amount > 20000
+order by $x/custname ascending
+return $x/custname
+
+Output
+
+<?xml version="1.0" encoding="UTF-8"?>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Aish</custname>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Prachin</custname>
+
+
+5.	Write a query using XQuery FLOWR to implement ORDER BY DESCENDING :
+Display the first name (Order by Descending ) of the student whose marks are greater than 88 
+
+Answer: 
+
+Query:
+xquery version "1.0";
+
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+where $x/amount > 20000
+order by $x/custname ascending
+return $x/custname
+
+
+Output
+
+<?xml version="1.0" encoding="UTF-8"?>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Prachin</custname>
+<custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Aish</custname>
+
+
+
+6.	Write a query using XQuery FLOWR to retrieve data Using IF ELSE condition:
+Display good if marks is less than 88 else excellent along with first name of the student
+ 	Answer: 
+Query:
+xquery version "1.0";
+
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+return if($x/amount<20000)
+then <Good>{data($x/custname)}</Good>
+else <Excellent>{data($x/custname)}</Excellent>
+
+Output
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Good>Samkit</Good>
+<Excellent>Aish</Excellent>
+<Excellent>Prachin</Excellent>
+
+7.	Write a query using XQuery FLOWR to retrieve data Using WHERE clause with AND condition: Display the amount of the order whose name is ‘Samkit’ and  itemname is 'TV'
+
+Answer: 
+
+Query:
+xquery version "1.0";
+
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+where $x/custname="Samkit" and $x/itemname="TV"
+return $x/amount
+
+Output
+
+<?xml version="1.0" encoding="UTF-8"?>
+<amount xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">10000</amount>
+
+
+8.	Write a query using XQuery FLOWR to list all the customer Name in an HTML list ordered by amount. (add <ul> and <li> tags to the FLWOR expression)
+Answer: 
+Query:
+xquery version "1.0";
+
+
+<ul>
+{
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+order by $x/amount
+return <li>{$x/custname}</li>
+}
+
+</ul>
+
+Output
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ul>
+   <li>
+      <custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Samkit</custname>
+   </li>
+   <li>
+      <custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Aish</custname>
+   </li>
+   <li>
+      <custname xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Prachin</custname>
+   </li>
+</ul>
+
+9.	Write a query using XQuery FLOWR to eliminate the title element, and show only the data inside the title element : Display Only data inside title
+Answer: 
+Query:
+
+xquery version "1.0";
+
+<ul>
+{
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+order by $x/amount
+return <li>{data($x/custname)}</li>
+}
+
+</ul>
+
+Output
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ul>
+   <li>Samkit</li>
+   <li>Aish</li>
+   <li>Prachin</li>
+</ul>
+
+
+
+10.	Write a query using XQuery FLOWR to counts the occurrence of firstname  listed for each Student in a data file: Count occurrences of name
+Answer: 
+Query:
+
+xquery version "1.0";
+
+for $x in doc("D:/Dropbox/Documents/College Programs/SL-VI/Assignment 7/order/customerOrders.xml")/Customer/orders
+return count($x/custname)
+
+Output
+
+<?xml version="1.0" encoding="UTF-8"?>1 1 1

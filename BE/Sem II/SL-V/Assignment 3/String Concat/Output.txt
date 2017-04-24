@@ -1,0 +1,24 @@
+
+Output:
+
+D:\Dropbox\Documents\College Programs\SL-V\Assignment 3>javac SC.java SS.java SSI.java SSIm.java
+
+Microsoft Windows (use javaw if start is not available):
+
+start rmiregistry
+
+Solaris OS or Linux:
+
+rmiregistry &
+
+Server:
+
+D:\Dropbox\Documents\College Programs\SL-V\Assignment 3>java SS
+
+
+Client:
+
+D:\Dropbox\Documents\College Programs\SL-V\Assignment 3>java SC 127.0.0.1 hi IamSamkit
+The first string is:hi
+The second string is:IamSamkit
+The sum is:hiIamSamkit

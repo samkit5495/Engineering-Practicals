@@ -1,0 +1,8 @@
+
+Error:
+
+sudo apt-get update
+sudo apt-cache search apache2
+sudo apt-get install rpcbind
+
+/bin/systemctl add-wants multi-user.target rpcbind.service

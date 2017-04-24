@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<BEIT xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="schema.xsd">
+	<Student>
+		<Name>Suraj Sengar</Name>
+		<PhoneNo>9877656744</PhoneNo>
+		<Aggregate>77.56</Aggregate>
+		<Attendance>83</Attendance>
+		<College>SAE</College>
+	</Student>
+	
+	<Student>
+		<Name>Vivek Sharma</Name>
+		<PhoneNo>9762134796</PhoneNo>
+		<Aggregate>78.43</Aggregate>
+		<Attendance>75</Attendance>
+		<College>SAE</College>
+	</Student>
+	
+	<Student>
+		<Name>Samarth Kumar</Name>
+		<PhoneNo>7877345553</PhoneNo>
+		<Aggregate>67.56</Aggregate>
+		<Attendance>93</Attendance>
+		<College>SKN</College>
+	</Student>
+	
+	<Student>
+		<Name>Pranu123</Name>
+		<PhoneNo>100</PhoneNo>
+		<Aggregate>45</Aggregate>
+		<Attendance>100</Attendance>
+	</Student>
+	
+	<Student>
+		<Name>Neeraj Kumar Singh</Name>
+		<PhoneNo>7702345644</PhoneNo>
+		<Aggregate>71.43</Aggregate>
+		<Attendance>93</Attendance>
+		<College>NBN</College>
+	</Student>
+	
+	<Student>
+		<Name>Aakash Rathod</Name>
+		<PhoneNo>9890798675</PhoneNo>
+		<Aggregate>98.43</Aggregate>
+		<Attendance>45</Attendance>
+		<College>NBN</College>
+	</Student>
+</BEIT>
+
+
+<!-- New XML document created with EditiX XML Editor (http://www.editix.com) at Thu Jan 05 17:39:21 IST 2017 -->
+
+
